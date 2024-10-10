@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="x-icon" href="M.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile</title>
+  <link rel="stylesheet" href="css/profile.css">
+      <!--disable back button -->
+      <script language="javascript" type="text/javascript" >
+        function preventBack(){
+        window.history.forward();
+        }setTimeout("preventBack()", 0);
+        window.onunload = function(){null};
+    </script>
+    <!-- end-->
+    <link rel="stylesheet" href="css/top.css">
+    <script src="js/top.js" defer></script>
+
+</head>
+<body>
+  <!-- preloader start  -->
+  <div id="preloader-preloader">
+    <section class="preloader-body-container">
+        <div class="preloader-container">
+          <div class="preloader-ring"></div>
+          <div class="preloader-ring"></div>
+          <div class="preloader-ring"></div>
+          <div class="preloader-netflix">
+              <span class="preloader-left"></span>
+              <span class="preloader-center-1"></span>
+              <span class="preloader-center-2"></span>
+              <span class="preloader-right"></span>
+          </div>
+          <span id="preloader-loding"></span>
+          <div class="preloader-point-loader">
+              <li class="preloader-ring-loader"></li>
+              <li class="preloader-ring-loader"></li>
+              <li class="preloader-ring-loader"></li>
+              <li class="preloader-ring-loader"></li>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- preloader End  -->
+    <video autoplay muted loop id="myVideo">
+        <source src="music/background.mp4" type="video/mp4">
+    </video>
+ <div class="content">
+    <div class="backlogout">
+     <a href="python" class="back">Back</a>
+     <a href="/logOut" class="login">logOut</a>
+    </div>
+
+  <div class="profile-container">
+    <div class="profile-picture">
+        <img class="profile-image" src="<%= user.image %>" alt="profile Image" />
+    </div>
+    <div class="profile-info">
+      <h1 class="profile-name"> <p class="profile-firstname"><%= user.firstname %></p> <p class="profile-lastname"><%= user.lastname %></p></h1> 
+      <h1 style="display: none;" id="data-user" data-user="<%= JSON.stringify(user) %>"></h1>
+
+         <table style="width:100%;">
+           <tr>
+             <th>Full Name:</th>
+             <td><%= user.firstname %> <%= user.lastname %></td>
+           </tr>
+           <tr>
+             <th>Email:</th>
+             <td class="profile-email"><%= user.email %></td>
+           </tr>
+           <tr>
+             <th>Phone NO:</th>
+             <td class="profile-phoneNo"><%= user.phone %></td>
+           </tr>
+           <tr>
+             <th>Address:</th>
+             <td class="profile-address"><%= user.address %></td>
+           </tr>
+         </table>
+      <div class="social-links" style="background: rgb(5, 221, 250); border-radius: 5px;">
+        <a href="https://github.com/<%= user.firstname %><%= user.lastname %>" target="_blank"><img src="github.png" alt="GitHub"></a>
+        <a href="https://www.linkedin.com/in/<%= user.firstname %><%= user.lastname %>" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
+        <a href="https://twitter.com/<%= user.firstname %><%= user.lastname %>" target="_blank"><img src="twitter.png" alt="Twitter"></a>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script>
+    const profile_images = document.querySelector('.profile-image').src;
+    const profile_firstname = document.querySelector('.profile-firstname').textContent;
+const userLogin = {
+  image : profile_images,
+  firstname : profile_firstname
+}
+// When the user logs in, store their information in local storage
+localStorage.setItem('userLogin', JSON.stringify(userLogin));
+const storedUser = localStorage.getItem('userLogin');
+// Check if the user is logged in
+if (storedUser) {
+  const userLogin = JSON.parse(storedUser);
+}
+
+
+const userDataElement = document.getElementById('data-user');
+const userData = userDataElement.getAttribute('data-user');
+const userObject = JSON.parse(userData);
+localStorage.setItem('user', JSON.stringify(userObject));
+</script>
+</body>
+</html>

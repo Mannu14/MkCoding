@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="M.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Website</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="js/style.js" defer></script>
+    <script src="js/Network.js" defer></script>
+    <link rel="stylesheet" href="css/Shoping.css">
+</head>
+<body>
+<div class="show-preview-box"><div class="show-details"><span class="show-icon fas fa-times"></span></div><div class="show-img-box"><img src="" alt=""></div></div>
+<div class="show-shadow"></div>
+<!-- preloader start-->
+<div id="preloader-preloader">
+<section class="preloader-body-container">
+<div class="preloader-container"><div class="preloader-ring"></div><div class="preloader-ring"></div><div class="preloader-ring"></div>
+<div class="preloader-netflix"><span class="preloader-left"></span><span class="preloader-center-1"></span><span class="preloader-center-2"></span><span class="preloader-right"></span></div>
+<span id="preloader-loding"></span>
+<div class="preloader-point-loader"><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li></div>
+</div>
+</section>
+</div>
+<!-- preloader End -->
+<header>
+<h1>Shopping</h1>
+<form id="search-form">
+<div class="search-input">
+<input type="text" name="search" id="search-input" placeholder="Type to Search...">
+<div class="icon search-button"><button type="submit"  style="border: none; font-size: 20px;background: none; cursor: pointer;" ><i class="fas fa-search"></i></button></div>
+</div>
+</form>
+</header>
+<main>
+<p><h3>Shop the latest fashion trends for men and women - unbeatable prices! || Discover the best deals on electronics and gadgets - limited time offers!</h3></p>
+<section class="products">
+<div id="imgshowhidden" class="product-card content">
+<div class="images blur-load">
+  <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/amazon discount image-1.png">
+  <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/amazon mobile discount-1.png">
+  <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/amazon ptron headphone-1.png">
+  <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/amazon headphone -2.png">
+  <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/fashon-1.jpg">
+  <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/laptop-1.jpg">
+  <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/iphone-2.jpg">
+  <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/iphone-1.jpg">
+</div>
+<div onclick="side_slide(-1)" class="slide left"><span class="fas fa-angle-left"></span></div>
+<div onclick="side_slide(1)" class="slide right"><span class="fas fa-angle-right"></span></div>
+<div class="btn-sliders">
+  <span onclick="btn_slide(1)"></span>
+  <span onclick="btn_slide(2)"></span>
+  <span onclick="btn_slide(3)"></span>
+  <span onclick="btn_slide(4)"></span>
+  <span onclick="btn_slide(5)"></span>
+  <span onclick="btn_slide(6)"></span>
+  <span onclick="btn_slide(7)"></span>
+  <span onclick="btn_slide(8)"></span>
+</div>
+<button class="shop-now"><a href="https://amzn.to/3DCP0BX">Shop Now</a></button>
+</div>
+</section>
+</main>
+<div id="links-container">
+<main class="mainsection right-links-main">
+<% items.forEach(function(image){   
+%>
+<div class="maindiv" data-name="<%= image.uploadClass %>">
+<section class="products">
+<div class="product-card mainsection-product-card mainheading_file_2">
+<div class="blur-load shoping-page-img">
+<img src="images/black-backGround.png" data-src="<%= image.file6 %>" name="image" loading="lazy" />
+</div>    
+<h3 class="mainheading_h3"><%=image.mainheading_h2%></h3>
+<li style="display: none;"><%=image.uploadID%></li>
+<p class="mainheading_h2">Prize : <%=image.mainheading_h3%></p>
+<button><a class="mainheading_h6" href="<%= image.mainheading_h6%>">Shop Now</a></button>
+<button><a href="http://localhost:3000/shopnow">watch More</a></button>
+</div>
+</section>
+</div>
+<% }) %>     
+</main>
+</div>
+<main>
+<h3>samsung s23 ultra  || oppo phones under 15000</h3>
+<section class="products">
+<div class="product-card product-card-3">
+  <div class="blur-load shoping-page-img">
+  <img src="images/black-backGround.png" data-src="images/Galaxy S23 ultra 134499.png" loading="lazy" alt="Product 1">
+  </div>
+  <h3> Samsung Galaxy S23 Ultra 5G in Phantom Black - a flagship smartphone with 12GB RAM and 256GB storage, delivering exceptional performance. Experience cutting-edge technology and stunning visuals in a sleek and powerful package.</h3>
+  <p>prize : $1,627.36</p>
+  <button><a href="https://amzn.to/44Qefg6">Read More</a></button>
+  <button><a href="blog">watch More</a></button>
+</div>
+  <div class="product-card product-card-3">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/oppo A17 --12499.png" loading="lazy" alt="Product 1"></div>
+  <h3>Oppo A17 (Midnight Black, 4GB RAM, 64GB Storage) with No Cost EMI/Additional Exchange Offers</h3><p>prize : $151.79</p>
+  <button><a href="https://amzn.to/3DEGAtR">Read More</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card product-card-3">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/oppo A78 12000.png" loading="lazy" alt="Product 1"></div>
+  <h3>Oppo A78 5G, now available in Glowing Blue color with an impressive 8GB RAM and 128GB Storage! This powerful smartphone comes equipped with a massive 5000 mAh Battery and a 33W SUPERVOOC Charger for ultra-fast charging.</h3>
+  <p>prize : $147.23</p>
+  <button><a href="https://amzn.to/47s50EL">Read More</a></button><button><a href="blog">watch More</a></button>
+</div>
+</section>
+</main>
+<main>
+<section class="products">
+<div class="product-card">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/oppo reno 8 -29990.png" loading="lazy" alt="Product 1"></div>
+  <h3>Oppo Reno8 5G (Shimmer Black, 128 GB) (8 GB RAM)</h3><p>prize : $200</p>
+  <button><a href="https://amzn.to/459Sesp">Read More</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+<div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/samsang galexy Z flip- -99999.png" loading="lazy" alt="Product 1"></div>
+<h3>Samsung Galaxy Z Flip5 5G (Graphite, 8GB RAM, 256GB Storage)</h3><p>prize : $1000.78</p>
+<button><a href="https://amzn.to/456S4C4">Read More</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+<div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/vivo v23 5G 29999.png" loading="lazy" alt="Product 1"></div>
+  <h3>Vivo V23 5G (Stardust Black, 12GB RAM, 256GB Storage)</h3><p>Prize : $200.12</p>
+  <button><a href="https://amzn.to/44OtztK">Read More</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+<div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/vivo v27 5G 32000.png" loading="lazy" alt="Product 1"></div>
+<h3>Smartphone V27 5G | 12GB RAM 256GB ROM | Magic Blue</h3><p>Prize : $220.12</p>
+<button><a href="https://amzn.to/3QubcFQ">Read More</a></button><button><a href="blog">watch More</a></button>
+</div> 
+</section>
+</main>
+<main>
+<section class="products">
+<div class="product-card">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/xiaomi 12 pro 44000.png" loading="lazy" alt="Product 1"></div>
+  <h3>Xiaomi 12 Pro | 5G (Noir Black, 8GB RAM, 256GB Storage) | Snapdragon 8 Gen 1 | 50+50+50MP Flagship Cameras (OIS) | 10bit 2K+ Curved AMOLED Display | Sound by Harman Kardon</h3>
+  <p>Prize : Rs41,999</p>
+  <button><a href="https://amzn.to/3DEQLPa">Know More</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/one pluse 11 R -39999.png" loading="lazy" alt="Product 1"></div>
+  <h3>OnePlus 11R 5G (Sonic Black, 8GB RAM, 128GB Storage)</h3><p>Prize : ₹39,999</p>
+  <button><a href="https://amzn.to/3qcwiho">Know More</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+<div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/Laptop Fujitsu UH-13 Genreation.png" loading="lazy" alt="Product 1"></div>
+  <h3>Fujitsu UH-X 13th Gen Intel Evo Core i5 14 inch(35.5cm) FHD Thin & Light Laptop (16GB/512GB SSD)/Windows11/Office/Iris Xe Graphics/Backlit/Fingerprint Reader/Black/868gm - 4ZR1L12857 w/Sleeve</h3>
+  <p>Prize : $971.51</p>
+<button><a href="https://amzn.to/3OEsyyz">Know More</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/laptop dell.png" loading="lazy" alt="Product 1"></div>
+  <h3>Dell 14 AMD Laptop, Ryzen R5-5500U/8GB/512GB/14.0" (35.56cm) FHD Display with TÜV Rheinland Certified Comfortview to Reduce Harmful Blue Light/Windows 11 + MSO'21/15 Month McAfee/Carbon Black/1.48kg</h3>
+  <p>Prize : ₹79,999</p>
+  <button><a href="https://amzn.to/3qfn6sG">Know More</a></button><button><a href="blog">watch More</a></button>
+</div>   
+</section>
+</main>
+<main>
+<section class="products">
+<div class="product-card">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/dell mouse.png" loading="lazy" alt="Product 1"></div>
+  <h3>Dell MS116 1000Dpi USB Wired Optical Mouse, Led Tracking, Scrolling Wheel, Plug and Play.</h3><p>Prize : -57% off ₹279</p>
+  <button><a href="https://amzn.to/3QnGdvo">Know More</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/hp mouse.png" loading="lazy" alt="Product 1"></div>
+  <h3>HP M270 Backlit USB Wired Gaming Mouse with 6 Buttons, 4-Speed Customizable 2400 DPI, Ergonomic Design, Breathing LED Lighting, Metal Scroll Wheel, Lightweighted / 3 Years Warranty (7ZZ87AA), Black</h3>
+  <p>Prize : ₹499</p>
+  <button><a href="https://amzn.to/3OeVRGF">Shop Now</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/laptop apple.png" loading="lazy" alt="Product 1"></div>
+  <h3>Apple 2023 MacBook Pro Laptop M2 Pro chip with 10‑core CPU and 16‑core GPU: 33.74 cm (14.2-inch), 16GB Unified Memory, 512GB</h3>
+  <p>Prize : ₹89,999</p>
+  <button><a href="https://amzn.to/3Ye7z97">Shop Now</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/laptop.png" loading="lazy" alt="Product 1"></div>
+  <h3>Apple 2023 MacBook Pro Laptop M2 Pro chip with 10‑core CPU and 16‑core GPU: 33.74 cm (14.2-inch), 16GB Unified Memory, 512GB</h3>
+  <p>Prize : ₹119,999</p>
+  <button><a href="https://amzn.to/3qcoHzo">Shop Now</a></button><button><a href="blog">watch More</a></button>
+</div>
+ </section>
+</main>
+<main>
+<section class="products">
+<div class="product-card">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/oppo reno 6.png" loading="lazy" alt="Product 1"></div>
+  <h3>(Renewed) Oppo Reno6 5G (Aurora, 8GB RAM, 128GB Storage)</h3><p>Prize : M.R.P.:	₹35,990</p>
+  <button><a href="https://amzn.to/3OepoQR">Shop Now</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/titne watch.png" loading="lazy" alt="Product 1"></div>
+  <h3>Titan Neo Analog Silver Dial Men's Watch</h3>
+  <p>Prize : M.R.P.: ₹3,990</p>
+  <button><a href="https://amzn.to/3s0NpTK">Shop Now</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/smart watch.png" loading="lazy" alt="Product 1"></div>
+  <h3> Smart Watch with Bluetooth Calling, AI Voice Assistance, 100 Sports Modes IP67 Rating, 240 * 280</h3><p>Prize : M.R.P.: ₹2,990</p>
+  <button><a href="https://amzn.to/3QE7hGX">Shop Now</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+  <div class="blur-load shoping-page-img">
+  <img src="images/black-backGround.png" data-src="images/boat nick band.png" loading="lazy" alt="Product 1">
+  </div>
+  <h3>boAt Rockerz 255 Neo in-Ear Bluetooth Neckband with Mic with ENx Tech, Smart Magnetic Buds, ASAP Charge, Upto 25 Hours </h3>
+  <p>Prize : M.R.P.:	₹1190</p>
+  <button><a href="https://amzn.to/4576WAn">Shop Now</a></button>
+  <button><a href="blog">watch More</a></button>
+</div>
+            <!-- Add more product cards as needed -->
+        
+</section>
+</main>
+<main>
+<section class="products">
+<div class="product-card">
+<div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/garner face wash.png" loading="lazy" alt="Product 1"></div>
+  <h3>Garnier Men, Anti-Pimple Face Wash, Repairs Skin & Balances Oils, AcnoFight, 350 g</h3><p>Prize : ₹451</p>
+  <button><a href="https://amzn.to/3Oa8cf2">Shop Now</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/Dmen face wash.png" loading="lazy" alt="Product 1"></div>
+  <h3>Beardo Ultraglow Face Wash for Men, 100ml | Brightens & Balances Skin Tone | Reduces Dark Spots facewash</h3><p>Prize : ₹295</p>
+  <button><a href="https://amzn.to/3rT5Qdg">Shop Now</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/beardo face wash.png" loading="lazy" alt="Product 1"></div>
+  <h3>BEARDO De-Tan Face wash for Men, 100ml | Reduces Tan for glowing complexion | Coffee Facewash</h3><p>Prize : ₹207</p>
+  <button><a href="https://amzn.to/3KpK1IG">Shop Now</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/beardo scane hair remove.png" loading="lazy" alt="Product 1"></div>
+  <h3>Svish On The Go Hair Removal Spray for Men Pack of 1 (200ml) |Made Safe Certified| Painless Body Hair Removal</h3><p>Prize : ₹599</p>
+  <button><a href="https://amzn.to/3q5FowB">Shop Now</a></button><button><a href="blog">watch More</a></button>
+</div>
+</section>
+</main>
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
+<footer><p>&copy; 2023 Shopping Website. All rights reserved.</p></footer>
+<div class="wrapper-Network">
+  <div class="toast-Network">
+  <div class="content-Network">
+  <div class="icon-Network"><i class="uil uil-wifi"></i></div>
+  <div class="details-Network"><span>You're online now</span><p>Hurray! Internet is connected.</p></div>
+  </div>
+  <div class="close-icon-Network"><i class="uil uil-times"></i></div>
+  </div>
+  <div class="progress-bar-Network"><div class="progress-Network"></div></div>
+</div>
+<style>
+header {background-color: #333; color: #fff; padding: 0 10px 5px 10px;display: flex; flex-direction: column; align-items: center; justify-content: center; }
+header h1 {font-size: 20px; margin: 0; }
+#search-form {align-items: center; min-width: 40%;}
+.search-input {position: relative;background: #e6e0e0;width: 100%;height: 50px;border-radius: 5px;}
+.search-input input {background: #f5f5f5;height: 50px;width: 100%;outline: none;border: none;border-radius: 5px 5px 0 0;padding: 0 0px 0 20px;font-size: 18px;}
+.search-input .icon {height: 55px;line-height: 55px;position: absolute;top: 0;right: 0;text-align: center;font-size: 20px;color: #644bff;cursor: pointer;right: -10px;}
+.icon button{color: black;}
+</style>
+<link rel="stylesheet" href="css/top.css">
+<script src="js/top.js"></script>
+<script src="js/shopingblog.js"></script>
+</body>
+</html>

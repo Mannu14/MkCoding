@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="M.jpg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us</title>
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body> 
+    <!-- ------------- preloader start ---------------  -->
+  <div id="preloader-preloader">
+    <section class="preloader-body-container">
+        <div class="preloader-container">
+          <div class="preloader-ring"></div>
+          <div class="preloader-ring"></div>
+          <div class="preloader-ring"></div>
+          <div class="preloader-netflix">
+              <span class="preloader-left"></span>
+              <span class="preloader-center-1"></span>
+              <span class="preloader-center-2"></span>
+              <span class="preloader-right"></span>
+          </div>
+          <span id="preloader-loding"></span>
+          <div class="preloader-point-loader">
+              <li class="preloader-ring-loader"></li>
+              <li class="preloader-ring-loader"></li>
+              <li class="preloader-ring-loader"></li>
+              <li class="preloader-ring-loader"></li>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- ------------- preloader End ---------------  -->
+  <section class="sub-header">     
+        <nav>
+            <div class="link"><a href="/"><img class="logo" src="images/ManishName.jpeg"></a></div>
+            <div class="nav-links">
+                <i class="fa fa-times"></i>
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars"></i>
+        </nav>
+        <h1>Contact Us</h1>
+  </section>
+  <section class="location">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113135.4686063189!2d74.99515042057996!3d27.60954170741299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396ca4b82334472b%3A0x7f485cce3a6bf355!2sSikar%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1689331706733!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+  <section class="contact-us">
+    <div class="row">
+        <div class="contact-col">
+            <div>
+                <i class="fa fa-home"></i>
+                <span>
+                    <h5>Khatu Road, ABC Building</h5>
+                    <p>sikar, Rajasthan, IN</p>
+                </span>
+            </div>
+            <div>
+                <i class="fa fa-phone"></i>
+                <span>
+                    <h5>+1 0123456789</h5>
+                    <p>Monday to Saturday,10AM to 6PM</p>
+                </span>
+            </div>
+            <div>
+                <i class="fa fa-envelope-o"></i>
+                <span>
+                    <h5>enfo@gmail.com</h5>
+                    <p>Email Us youe query</p>
+                </span>
+            </div>
+        </div>   
+    </div>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <form onsubmit="formreload()" id="blankform" target="_blank"  action="/sendemail" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Subject:</label>
+                <input type="text" id="subject" name="subject" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label for="number">Phone No. :</label>
+                <input type="number" id="number" name="number" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" autocomplete="off" required></textarea>
+            </div>
+            <button id="send-btn" type="submit">Send</button>
+        </form>
+    </div>
+  </section>
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <link rel="stylesheet" href="css/top.css">
+    <script src="js/top.js"></script>
+   
+  <section class="footer">
+    <h4>About Us</h4> 
+    <p>1. जब जीवन भारी लगने लगे दुनिया में जब कोई अपना ना मिले तो एक बार श्याम बाबा के दरबार आओ ...
+        <br><br>
+       2. स्वयं को साबित करना है तो अपनी आत्मशक्ति और श्याम बाबा पर दृढ़ विश्वास करो ...
+    </p>
+       <div class="icons">
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-linkedin"></i>
+       </div>
+       <p>Made with <i class="fa fa-heart-o"></i> by MK Studio</p>
+  </section>
+  
+  <script>
+    function formreload() {
+          setTimeout(function() {
+               window.location.reload();
+          },2000);
+          this.submit();
+        };
+  </script>
+</body>
+</html> 

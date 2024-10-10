@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="x-icon" href="M.jpg">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Code Show</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/theme/dracula.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/css/css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/javascript/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/xml/xml.min.js"></script>
+<script src="Codingweb/close/closebrackets.js"></script>
+<!-- <link rel="stylesheet" href="Codingweb/lib/codemirror.css"> -->
+
+
+<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/textarea.css">
+    <link rel="stylesheet" href="css/top.css">
+    <script src="js/top.js" defer></script>
+    <script src="js/style2.js" defer></script>
+</head>
+<body class="light-theme">
+<nav>
+<div class="head"><div class="title-1 loader-css-2"><img src="M.jpg" alt="Manish"></div><div class="title-2"><label style="background: transparent;">Mk <span>Coding</span></label></div>
+<div class="search-bar">
+ <div class="wrapper">
+ <form id="search-form">
+ <div class="search-input"><input autocomplete="off" type="text" name="Manish_search" id="search-input" placeholder="Type to Search...">
+  <div class="icon search-button"><button type="submit"  style="border: none; font-size: 20px;background: none; cursor: pointer;" ><i class="fas fa-search"></i></button></div>
+  <div class="autocom-box"><li>Login From in HTML</li></div>
+</div>
+</form>
+</div> 
+<div class="theamchanger">
+<button id="themeToggle" class="loader-css"><i id="themeIcon" class="fas fa-sun"></i></button>
+</div>
+</div>
+<div class="title-3">
+<div class="wrapper-a">
+<div class="display-a">
+<div id="time">12:00:00 PM</div>
+</div>
+<span></span>
+<span></span>
+</div>
+<a href="profile" class="sign-up"><i class="fa fa-user"></i></a>
+</div>
+</div>
+</nav>
+       <!--preloader start-->
+<div id="preloader-preloader">
+    <section class="preloader-body-container">
+     <div class="preloader-container">
+      <div class="preloader-ring"></div><div class="preloader-ring"></div><div class="preloader-ring"></div>
+      <div class="preloader-netflix"><span class="preloader-left"></span><span class="preloader-center-1"></span><span class="preloader-center-2"></span><span class="preloader-right"></span></div>
+      <span id="preloader-loding"></span>
+      <div class="preloader-point-loader"><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li></div>
+     </div>
+    </section>
+   </div>
+   <!--preloader End-->
+<main>
+    <div class="show-preview-box">
+        <div class="show-details">
+            <span class="show-icon fas fa-times"></span>
+        </div>
+        <div class="show-img-box">
+            <img src="" alt="">
+        </div>
+    </div>
+    <div class="show-shadow"></div>
+    <div class="left-1">
+       <div class="right-links runShow-left">
+        <div class="right-links-main">
+                <% items.forEach(function(item){   
+                    %>
+                    <div class="maindiv" data-name="<%= item.uploadClass %>">
+                        <h2 name="mainheading_h2" class="mainheading_h2"><a href=""><%= item.mainheading_h3%></a></h2>
+
+                        <div class="code" style="color:white; margin-bottom: 50px;"><br>
+                            <label><button class="copy-button">HTML</button></label>
+                          <textarea class="editor" style="background:black; color: white; height: 1000px;"  id='html-code'><%= item.textarea_h4 %></textarea>
+                        </div>
+                        <div class="code" style="color:white; margin-bottom: 50px;"><br>
+                          <label><button class="copy-button">CSS</button></label>
+                          <textarea class="editor" style="background:black; color: white; height: 1000px;"  id='css-code'><%= item.textarea_h5 %></textarea>
+                        </div>
+                        <div class="code" style="color:white; margin-bottom: 50px;"><br>
+                          <label><button class="copy-button">Java Script</button></label>
+                          <textarea class="editor" style="background:black; color: white; height: 1000px;"  id='js-code'><%= item.textarea %></textarea>
+                        </div>
+                    </div>
+                    <% }) %>
+       </div>
+    <div class="marquee-bottom">
+       <marquee behavior="" direction="left" scrollamount="5" >
+           <div class="div">Mk Studio jaipur rajasthan.</div>
+       </marquee>
+    </div>
+      </div>
+      <div class="runShow-right">
+        <label class="label-chage show-code copy-button ">Show Code</label>
+          <label id="runShow-runcode" class="label-chage">Run</label>
+          <iframe id="runShow-output"></iframe>
+      </div>
+    </div>  
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<style>
+.right-links {width: 100%}
+.right-links-main{width: 100%;}
+label{background: #000;color: #fff;font-size: 19px;padding: 8px 31px;font-weight: bold;margin-left: 0;}
+.CodeMirror pre.CodeMirror-line, .CodeMirror pre.CodeMirror-line-like {padding: 0 30px;}
+.code{
+    height: 400px;
+    padding: 0 10px;
+}
+</style>
+<script>
+// runShowProject=
+        var htmlcodeEditor = CodeMirror.fromTextArea(document.getElementById('html-code'),{
+        mode: "xml",
+        theme: "dracula",
+        tabSize:4,
+        lineNumbers: true,
+        autoCloseBrackets: true,
+        lineWrapping:true,
+        matchBrackets:true,
+        indentUnit: 4,
+     });
+    var csscodeEditor = CodeMirror.fromTextArea(document.getElementById('css-code'),{
+        mode: "css",
+        theme: "dracula",
+        tabSize:4,
+        lineNumbers: true,
+        autoCloseBrackets: true,
+        lineWrapping:true,
+        matchBrackets:true,
+        indentUnit: 4,
+     });
+    var jscodeEditor = CodeMirror.fromTextArea(document.getElementById('js-code'),{
+        mode: "javascript",
+        theme: "dracula",
+        tabSize:4,
+        lineNumbers: true,
+        autoCloseBrackets: true,
+        lineWrapping:true,
+        matchBrackets:true,
+        indentUnit: 4,
+     });
+
+    function runcode(){
+    let htmlcode = htmlcodeEditor.getValue();
+    let csscode = csscodeEditor.getValue();
+    let jscode = jscodeEditor.getValue();
+    let output = document.getElementById('runShow-output');
+
+    output.contentDocument.body.innerHTML = htmlcode + "<style>" + csscode + "</style>";
+    output.contentWindow.eval(jscode);
+}
+document.addEventListener('DOMContentLoaded', function () {
+const runcodeid = document.querySelector('#runShow-runcode');
+runcodeid.addEventListener('click',function(){
+    runcode();
+});
+});
+const showcode=document.querySelector('.show-code');
+const runShowleft=document.querySelector('.runShow-left');
+const runShowright=document.querySelector('.runShow-right');
+showcode.addEventListener('click',function(){
+    if(runShowleft.style.display == "none"){
+        runShowleft.style.display = "block";
+        runShowleft.style.Width = "50%";
+        runShowright.style.Width = "50%";
+        showcode.innerHTML= "Hide Code";
+    }
+    else{
+        runShowleft.style.display = "none";
+        showcode.innerHTML= "Show Code";
+        runShowright.style.Width = "100%";
+        runShowleft.style.Width = "100%";
+    }
+});
+</script>
+</body>
+</html>

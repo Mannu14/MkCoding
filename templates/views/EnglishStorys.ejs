@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="M.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Stories</title>
+    <link rel="stylesheet" href="css/top.css">
+    <script src="js/top.js" defer></script>
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="js/blog.js" defer></script>
+</head>
+<body class="light-theme">
+<!--preloader start-->
+<div id="preloader-preloader">
+    <section class="preloader-body-container">
+     <div class="preloader-container">
+      <div class="preloader-ring"></div><div class="preloader-ring"></div><div class="preloader-ring"></div>
+      <div class="preloader-netflix"><span class="preloader-left"></span><span class="preloader-center-1"></span><span class="preloader-center-2"></span><span class="preloader-right"></span></div>
+      <span id="preloader-loding"></span>
+      <div class="preloader-point-loader"><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li></div>
+     </div>
+    </section>
+</div>
+   <!--preloader End-->
+<header><h1>English Stories</h1>
+ <form id="search-form">
+  <div class="search-input">
+   <input autocomplete="off" type="text" name="search" id="search-input" placeholder="Type to Search..."><div class="icon search-button"><button type="submit"  style="border: none; font-size: 20px;background: none; cursor: pointer;" ><i class="fas fa-search"></i></button></div>
+  </div>
+ </form>
+</header>
+<nav id="navbar">
+<ul>
+<li><a href="Shoping">Shoping</a></li><li><a href="free_image_download">Download Images</a></li><li><a href="contactUs">ContactUS</a></li><li><a href="python">Python</a></li><li><a href="blog">Blogs</a></li><li><a href="hindiStory">hindiStory</a></li>
+<button id="themeToggle" class="loader-css"><i id="themeIcon" class="fas fa-sun"></i></button>
+</ul>
+</nav>
+<div class="manisection right-links-main">
+<main>
+<section>
+ <% items.forEach(function(image){   
+ %>
+ <div class="maindiv" data-name="<%= image.uploadClass %>">
+ <h2 name="mainheading_h2" class="mainheading_h2"><a href="#"><%= image.mainheading_h2%></a></h2>
+ <p name="mainheading_p" class="mainheading_p">
+ <h4 class="gap">
+ <%= image.mainheading_p%>
+ <span class="read-more">...</span>
+ </h4>
+ <span name="mainheading_h3" class="hidden-content">
+ <h4 class="gap">
+ <div class="image-stars">
+ <div class="image-stars-a">
+ <div id="headingImage" name="mainheading_file_2" class="mainheading_file_2 hidden-img blur-load"><img loading="lazy" src="images/black-backGround.png" data-src="data:image/<%=image.img.contentType%>;base64,
+ <%=image.img.data.toString('base64')%>" name="image" /></div>
+ </div>
+ </div>
+ <%= image.mainheading_span_1%>
+ </h4>
+ <h4 class="gap"><%= image.mainheading_span_2%></h4>
+ <h4 class="gap"><%= image.mainheading_span_3%></h4>
+ <h4 class="gap"><%= image.mainheading_span_4%></h4>
+ </span>
+ </p>
+ </div>
+ <button class="read-more-btn">Read More</button>
+ <%
+ }) %>
+</section>
+<section>
+            <h2>Introduction of elvish yadav || Elvish Yadav is a well-known Indian YouTuber celebrated for his entertaining and humorous content.</h2>
+            <p>
+                <h4 class="gap">
+                    Elvish Yadav is a well-known Indian YouTuber celebrated for his entertaining and humorous content. He has earned fame for his unique style, impeccable comic timing, and witty storytelling, captivating the hearts of his audience.
+                    Born on September 14, 1997, in Gurgaon, Haryana, Elvish embarked on his YouTube journey in 2016 and quickly rose to prominence among the youth.
+                    <span class="read-more">...</span>
+                </h4>
+                <span class="hidden-content">
+                    <h4 class="gap">
+                        <div class="image-stars">
+                            <div class="image-stars-a hidden-img blur-load">
+                                <img loading="lazy" src="images/black-backGround.png" data-src="images/elvish yadav-1.jpg" alt="">
+                            </div>
+                            <div class="image-stars-a blur-load">
+                                <img loading="lazy" src="images/black-backGround.png" data-src="images/elvish yadav-2.jpg" alt="">
+                            </div>
+                        </div>
+                        Elvish Yadav's channel features funny videos that revolve around everyday situations, relationships, and social issues. His videos often go viral, garnering millions of views and subscribers on social media platforms.
+                        Apart from YouTube, Elvish is active on Instagram, where he shares behind-the-scenes glimpses and engages with his fans regularly.
+                        With a massive subscriber base, Elvish Yadav has become one of India's most popular YouTubers, winning the hearts of audiences across the country.
+                        Elvish's charisma and knack for creating engaging content have made him a favorite among the younger generation.
+                    </h4>
+                    <h4 class="gap">
+                        His videos showcase his exceptional acting skills and comic genius, resonating with viewers from various backgrounds.
+                        Elvish Yadav's YouTube channel is known for its relatable content that reflects the daily experiences of the common man.
+                        He is admired for his open-mindedness and social perspective, making him a symbol of change and inspiration in the digital era.
+                        Elvish's ability to entertain and deliver meaningful messages through his videos has earned him a loyal and dedicated fan base.
+                        His success as a YouTuber has led to collaborations with other popular creators and opportunities to work with renowned brands.
+                        Elvish Yadav's journey from a small town to becoming a renowned YouTube star showcases the potential of digital media to transform lives.
+                    </h4>
+                    <h4 class="gap">
+                        His dedication to producing quality content and connecting with his audience has contributed to his widespread popularity.
+                        Elvish's impact on the online community has solidified his position as one of India's most influential content creators.
+                        His ability to infuse humor into serious topics and address social issues in a lighthearted manner sets him apart from his contemporaries.
+                        Elvish Yadav's rise to fame is a testament to the power of creativity and authenticity in the world of digital content creation.
+                        He continues to inspire and entertain millions of viewers with his relatable and humorous videos.
+                        Elvish's success story serves as an inspiration for aspiring content creators, showcasing the potential of YouTube as a platform for expression and connection.
+                        His engaging content, combined with his charming personality, has made him a beloved figure in the Indian YouTube community.
+                        Elvish Yadav's YouTube journey is a reflection of the evolving landscape of content creation, where talent and originality can propel individuals to stardom.
+                        His positive impact on viewers and the entertainment industry cements his position as a prominent influencer in the digital space.
+                    </h4>
+                </span>
+            </p>
+            <button class="read-more-btn">Read More</button>
+        </section>
+        <section>
+            <h2>Introduction of Fukra Insan || Fukra Insan, whose real name is Abhishek Malhan, is a popular Indian YouTuber, content creator, and social media influencer.</h2>
+            <p>
+                <h4 class="gap">
+                    He was born on October 4, 1996, in New Delhi, India. Fukra Insan gained immense popularity and a dedicated fan following through his YouTube channel, where he creates entertaining and humorous content. Fukra Insan's content primarily revolves around comedy sketches, funny videos, and parodies, which have resonated with a wide audience, especially among the youth. He has a natural flair for comedy and often uses satire and wit to deliver his messages. One of the key aspects of Fukra Insan's videos is his relatability, as he often addresses common situations and experiences that many people encounter in their daily lives. This has helped him establish a strong connection with his viewers, making his content widely appreciated and shared.
+                    <span class="read-more">...</span>
+                </h4>
+                <span class="hidden-content"> 
+                    <h4 class="gap">
+                        <div class="image-stars">
+                            <div class="image-stars-a blur-load">
+                                <img loading="lazy" src="images/black-backGround.png" data-src="images/fukra insan-1.png" alt="">
+                            </div>
+                            
+                        </div>
+                        Apart from YouTube, Fukra Insan is also active on other social media platforms like Instagram, where he shares behind-the-scenes glimpses, interacts with his fans, and showcases his life beyond the camera.
+                        Over the years, Fukra Insan has collaborated with several prominent YouTubers and creators, further expanding his reach and gaining even more popularity in the digital space.
+                    </h4>
+                    <h4 class="gap">
+                        His channel's success has led to various brand collaborations and promotional partnerships, turning him into a sought-after influencer in the advertising industry.
+                        Fukra Insan's journey from being a regular college student to becoming a renowned YouTuber is an inspiring story of how passion, creativity, and dedication can lead to success in the digital world.
+                        His ability to keep his content fresh, engaging, and entertaining has helped him maintain a loyal and ever-growing subscriber base on YouTube.
+                        Fukra Insan's popularity continues to rise, and he remains a beloved figure in the Indian YouTube community, with millions of fans eagerly awaiting his new videos.
+                    </h4>
+                    <h4 class="gap">
+                        His impact as a content creator extends beyond entertainment, as he often uses his platform to raise awareness about social issues and promote positive messages.
+                       Overall, Fukra Insan's journey in the digital space showcases the power of content creation and its ability to connect with audiences on a personal level. With his creativity and comedic talent, he continues to bring smiles to the faces of his viewers and leave a lasting impression on the online world.
+                    </h4>
+                </span>
+            </p>
+            <button class="read-more-btn">Read More</button>
+        </section>
+        <section>
+            <h2>Introduction of Salman Khan | Salman Khan, born on December 27, 1965, in Indore, India, is one of the most iconic and celebrated actors in the Indian film industry.<h2>
+            <p>
+                <h4 class="gap">
+                    Salman Khan, born on December 27, 1965, in Indore, India, is one of the most iconic and celebrated actors in the Indian film industry. Fondly known as "Bhai" and the "Bhaijaan of Bollywood," Salman Khan's journey in the world of cinema is nothing short of legendary. He made his acting debut with the film "Biwi Ho To Aisi" in 1988, but it was his breakthrough role in "Maine Pyar Kiya" in 1989 that catapulted him to fame and stardom. Since then, there has been no looking back for Salman Khan, and he has been ruling the hearts of millions of fans worldwide with his charm and charisma.
+                   <span class="read-more">...</span>
+                </h4>
+                <span class="hidden-content"> 
+                    <h4 class="gap">
+                        <div class="image-stars">
+                            <div class="image-stars-a blur-load">
+                                <img loading="lazy" src="images/black-backGround.png" data-src="images/salman khan -1.jpg" alt="">
+                            </div>
+                            <div class="image-stars-a blur-load">
+                                <img loading="lazy" src="images/black-backGround.png" data-src="images/salman khan -2.jpg" alt="">
+                            </div>
+                            <div class="image-stars-a blur-load">
+                                <img loading="lazy" src="images/black-backGround.png" data-src="images/salman khan -3.jpg" alt="">
+                            </div>
+                            
+                        </div>
+                        Salman Khan is known for his versatility as an actor, excelling in both action-packed blockbusters and emotional family dramas. He has carved a niche for himself as the ultimate entertainer, delivering one box-office hit after another. Apart from his acting career, Salman Khan is also a film producer and the founder of the charitable organization "Being Human," which focuses on various philanthropic initiatives, including education and healthcare for the underprivileged.
+                    </h4>
+                    <h4 class="gap">
+                        His magnetic screen presence, unique style, and trademark dialogue delivery have made him a true superstar in the Indian film industry. Salman Khan's fans eagerly await his film releases, and he continues to dominate the box office with his blockbuster movies. Despite his larger-than-life image, Salman Khan is known for his humility and humanitarian efforts. He has been involved in numerous charitable activities and has contributed significantly to various social causes.
+                    </h4>
+                    <h4 class="gap">
+                        Throughout his illustrious career, Salman Khan has received several awards and accolades, including Filmfare Awards and National Film Awards, recognizing his outstanding contributions to Indian cinema. Salman Khan's popularity and influence extend beyond the boundaries of India, making him one of the most recognized and adored actors on the global stage.
+                    </h4>
+                </span>
+            </p>
+            <button class="read-more-btn">Read More</button>
+        </section>
+        <section>
+            <h2>Introduction of Shah Rukh Khan ||  Shah Rukh Khan, often referred to as the "King of Bollywood,"<h2>
+            <p>
+                <h4 class="gap">
+                    Shah Rukh Khan, often referred to as the "King of Bollywood," is one of the most prominent and influential actors in the Indian film industry. Born on November 2, 1965, in New Delhi, India, Shah Rukh Khan's journey to stardom is a remarkable tale of talent, hard work, and determination. Shah Rukh Khan made his acting debut in television serials in the late 1980s and early 1990s before transitioning to the silver screen. He gained widespread fame with his breakthrough role in the film "Deewana" in 1992 and continued to rise to prominence with a string of successful movies.
+                   <span class="read-more">...</span>
+                </h4>
+                <span class="hidden-content"> 
+                    <h4 class="gap">
+                        <div class="image-stars">
+                            <div class="image-stars-a blur-load">
+                                <img loading="lazy" src="images/black-backGround.png" data-src="images/sahrukh khan khan -1.jpg" alt="">
+                            </div>
+                            <div class="image-stars-a blur-load">
+                                <img loading="lazy" src="images/black-backGround.png" data-src="images/sahrukh khan khan -2.jpg" alt="">
+                            </div>
+                        </div>
+                        Often known for his charming personality, captivating smile, and exceptional acting prowess, Shah Rukh Khan has carved a niche for himself in the hearts of millions of fans worldwide. His versatility as an actor allows him to excel in various genres, be it romance, drama, action, or comedy. Beyond his acting career, Shah Rukh Khan is also a successful film producer and the co-owner of the Kolkata Knight Riders, a prominent team in the Indian Premier League (IPL) cricket tournament.
+                    </h4>
+                    <h4 class="gap">
+                        Shah Rukh Khan's impact on Indian cinema and pop culture is immense, earning him numerous awards, accolades, and a massive fan following, not just in India but across the globe. He is often regarded as one of the most influential and wealthiest actors in the world. Known for his philanthropic work, Shah Rukh Khan is actively involved in various charitable initiatives, including supporting children's education and healthcare.
+                    </h4>
+                    <h4 class="gap">
+                        Over the years, Shah Rukh Khan's stardom has earned him the title of "Badshah of Bollywood," and he remains a beloved figure in the entertainment industry, with fans eagerly awaiting his every film release. Shah Rukh Khan's journey from humble beginnings to becoming a global icon is an inspiring tale of achieving greatness through talent, hard work, and a never-ending passion for his craft.
+                    </h4>
+                </span>
+            </p>
+            <button class="read-more-btn">Read More</button>
+        </section>
+
+    </main>
+</div>
+<div class="show-preview-box">
+    <div class="show-details">
+        <span class="show-icon fas fa-times"></span>
+    </div>
+    <div class="show-img-box">
+        <img src="" alt="">
+    </div>
+</div>
+<div class="show-shadow"></div>
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
+    <footer>
+        <p>&copy; 2023 MK Studio. All rights reserved.</p>
+    </footer>
+</body>
+</html>

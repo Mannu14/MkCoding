@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"></head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <!-- Bootstrap JS -->
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- online offline status -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.2/socket.io.js" ></script>
+    <!-- online offline status -->
+    <link rel="stylesheet" href="css/top.css">
+    <script src="js/top.js" defer></script>
+<body>
+<!--preloader start-->
+<div id="preloader-preloader">
+  <section class="preloader-body-container">
+   <div class="preloader-container">
+    <div class="preloader-ring"></div><div class="preloader-ring"></div><div class="preloader-ring"></div>
+    <div class="preloader-netflix"><span class="preloader-left"></span><span class="preloader-center-1"></span><span class="preloader-center-2"></span><span class="preloader-right"></span></div>
+    <span id="preloader-loding"></span>
+    <div class="preloader-point-loader"><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li></div>
+   </div>
+  </section>
+ </div>
+ <!--preloader End-->
+<div class="">
+<header class="site-header">
+<div style="display: flex;" class="logo">
+<a href="/"><img src="M.jpg" alt="Logo"></a>
+</div>
+<nav class="main-nav">
+<ul>
+<ul class="list-unstyled components mb-5">
+  <li class="active"><a href="/"><span class="fa fa-home mr-3"></span>Home</a></li>
+  <li class="active"><a href="/groups"><span class="fa fa-group mr-3"></span>All Groups</a></li>
+  <li class="active active-group"><a href="/group-chat"><span class="fa fa-commenting-o mr-3"></span>Group Chat</a></li>
+  <li><a href="/logoutchat"><span class="fa fa-sign-out mr-3"></span>Logout</a></li>
+</ul>
+</ul>
+</nav>
+</header>
+</div>
+<div id="content" class="p-1 p-md-0 pt-1">
+</body>
+</html>
+<!--page content-->
+<style>
+body, html {margin: 0;padding: 0;background: #111 !important;}
+#content{width: 100%;background: #111;margin-top: 104px;}
+#content h2{color: #fff !important;}
+body {font-family: Arial, sans-serif;background-color: #f0f0f0;color: #fff;}
+.site-header {position: fixed;left: 0;top:0;background-color: #444;color: #fff;padding: 10px 0;display: flex;justify-content: space-between;align-items: center;width: 100%;}
+.site-header .logo {
+  padding: 0 20px;
+  flex: 1;
+}
+
+.site-header .logo a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+.logo img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.site-header .main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: contents;
+}
+
+.site-header .main-nav li {
+  margin-right: -2px;
+}
+
+.site-header .main-nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.site-header .main-nav a:hover {
+  color: #ccc;
+}
+
+.site-header .user-info {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+.site-header .user-info span {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.site-header .user-info a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.site-header .user-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+}
+
+nav {
+    background-color: #444;
+    color: #fff;
+    text-align: end;
+    margin-right: 20px;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Add more styles for other sections and components of your chat website as needed */
+@media screen and (max-width:720px) {
+  .list-group{
+    width: 100%;
+  }
+  .row{
+    margin-top: 140px;
+  }
+}
+@media screen and (max-width:508px) {
+  .logo{
+    display: none;
+  }
+}
+@media screen and (max-width:408px) {
+  .site-header .user-info{
+    padding: 0 3px;
+  }
+}
+</style>
+
+<!-- <a href="/logout">Logout</a> -->
+<link rel="stylesheet" href="css/index.css">
+<div class="row">
+    <div id="row-list" class="col-md-4 right-links-main">
+    <ul class="list-group">
+            <%
+             if(myGroups.length > 0){
+                for(let i = 0; i <myGroups.length; i++){
+                    %>
+                    <li class="list-group-item list-group-item-dark cursor-pointer group-list" data-id="<%= myGroups[i]['_id'] %>">
+                        <div class="mainheading_file_2"><img src="/<%= myGroups[i]['image'] %>" width="50px" height="50px" ></div>
+                        <%= myGroups[i]['name'] %>
+                    </li>
+                    <%
+                }
+            }
+            %>
+
+            <!-- ------show join groups----- -->
+            <%
+             if(joinedGroups.length > 0){
+                for(let i = 0; i <joinedGroups.length; i++){
+                    %>
+                    <li class="list-group-item list-group-item-dark cursor-pointer group-list" data-id="<%= joinedGroups[i]['group_id']['_id'] %>">
+                        <img src="/<%= joinedGroups[i]['group_id']['image'] %>" width="50px" height="50px" >
+                        <%= joinedGroups[i]['group_id']['name'] %>
+                    </li>
+                    <%
+                }
+             }
+            %>
+        </ul>
+    </div>
+    <div id="column-list" class="col-md-8">
+        <h3 class="group-start-head">Click to start the Chat</h3>
+
+        <div class="group-chat-section">
+            <div id="group-chat-container">
+                <!-- <div class="current-user-chat">
+                    <h5>Hii</h5>
+                </div>
+                <div class="distance-user-chat">
+                    <h5>Hii</h5>
+                </div> -->
+            </div>
+            <form action="" id="group-chat-form">
+                <input autocomplete="off" class="border" type="text" name="message" placeholder="Enter message" id="group-message" required>
+                <input type="submit" value="Send" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+</div>
+<div class="show-preview-box"><div class="show-details"><span class="show-icon fas fa-times"></span></div><div class="show-img-box"><img src="" alt=""></div></div>
+<div class="show-shadow"></div>
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<style>
+  body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+  h2 {
+    color: #333;
+  }
+  ul.list-group {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .list-group-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  .user-list img,h2 .profile {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+  
+  .online-status {
+    color: green;
+    margin-left: auto;
+  }
+  
+  .offline-status {
+    color: red;
+    margin-left: auto;
+  }
+  
+  /* Style the chat section */
+  .start-head {
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  .chat-section {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  #chat-container {
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  #chat-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #message {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 6.75px 20px;
+    border-radius: 0px 5px 5px 0px;
+    cursor: pointer;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  .border {
+    transition: all 0.3s;
+    outline: none;
+}
+
+.border:focus {
+    border-color: #27ae60 !important;
+    box-shadow: inset 0 0 3px #2fd072 !important;
+}
+  
+  
+  /* Style the modals */
+  .modal-title {
+    color: #333;
+  }
+  .list-group{
+      width: 100%;
+  }
+  
+  .row{
+    display: flex;
+    width: 86%;
+    overflow-y: auto;
+    margin-top: -22px;
+    margin-left: -8px;
+  }
+  #row-list{
+    width: 20%;
+  }
+  #column-list{
+    width: 65%;
+  }
+  .list-group-item{
+    position: inherit;
+  }
+  .list-group-item:focus, .list-group-item:hover {
+      z-index: unset;
+      text-decoration: none;
+  }
+  .user-data b{
+    color: pink;
+    background: black;
+    padding: 5px;
+    border-radius: 20px;
+  }
+  .user-data{
+    margin-top: 5px !important;
+  }
+  .selected-user-chat {
+      background: #a0a0a0; 
+      color: blue;
+  }
+  .selected-user-chat2 {
+      background: #fff; 
+      color: black;
+  }
+  .border{
+    height: 38px;
+  }
+  .row>*{
+    padding-right: calc(var(--bs-gutter-x) * .1);
+    margin-right: calc(-.1 * var(--bs-gutter-x)); 
+    margin-left: calc(-.1 * var(--bs-gutter-x));
+  }
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+    position: inherit;
+}
+  @media screen and (max-width:740px) {
+    #row-list{
+      width: 25%;
+    }
+    #column-list{
+      width: 75%;
+    }
+    
+  }
+  @media screen and (max-width:580px) {
+    .row{
+      display: block;
+      width: 101.7%;
+    }
+    #row-list{
+      width: 100%;
+    }
+    #column-list{
+      width: 100%;
+    }
+  }
+  @media screen and (max-width:390px) {
+    nav{
+      margin-right: 0px;
+    }
+    @media screen and (max-width:357px) {
+      nav{
+        padding: 0;
+        padding-right: 10px;
+      }
+    }
+  }
+  </style>
+<%- include('../partials/footer2.ejs') %>

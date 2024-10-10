@@ -1,0 +1,46 @@
+<script src="js/jquery.min.js"></script>
+<script src="/js/main.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const chatSectionUserName = document.getElementById('chat_section_user_name');
+    const listGroupUserNames = document.querySelectorAll('.list-group .user-list');
+    const rowList = document.getElementById('row-list');
+    const columnList = document.getElementById('column-list');
+    const handleUserClick = (userListItem) => {
+      const clickedUserName = userListItem.textContent.trim().replace(/(?:Online|Offline)$/i, '');
+      const clickedUserImageURL = userListItem.querySelector('.mainheading_file_2 img').src;
+    const userImageElement = document.getElementById('user_image');
+    userImageElement.src = clickedUserImageURL;
+      chatSectionUserName.innerText = clickedUserName;
+      columnList.style.transform = 'translateX(0%)';
+    };
+    listGroupUserNames.forEach(userListItem => {
+      userListItem.addEventListener('click', () => {
+        handleUserClick(userListItem);
+      });
+    });
+    const leftRowShow = document.querySelector('.left_row_show');
+    leftRowShow.addEventListener('click', function () {
+      columnList.style.transform = 'translateX(200%)';
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth <= 580) {
+        listGroupUserNames.forEach(userListItem => {
+          userListItem.removeEventListener('click', handleUserClick);
+        });
+        leftRowShow.removeEventListener('click', function () {
+          columnList.style.transform = 'translateX(100%)';
+        });
+      } else {
+        listGroupUserNames.forEach(userListItem => {
+          userListItem.addEventListener('click', () => {
+            handleUserClick(userListItem);
+          });
+        });
+        leftRowShow.addEventListener('click', function () {
+          columnList.style.transform = 'translateX(100%)';
+        });
+      }
+    });
+  });
+  </script>

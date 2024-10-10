@@ -1,0 +1,197 @@
+<%- include('../partials/header.ejs') %>
+<link rel="stylesheet" href="css/index.css">
+<div class="row">
+<div id="row-list" class="col-md-0 right-links-main">
+<ul class="list-group">
+<% if(users.length > 0){
+ for(let i = 0; i <users.length; i++){ %>
+  <li class="list-group-item list-group-item-dark cursor-pointer user-list" id="<%= users[i]['_id'] %>" data-id="<%= users[i]['_id'] %>">
+  <div class="mainheading_file_2"><img src="<%= users[i]['image'] %>" width="50px" height="50px" ></div>
+  <%= users[i]['firstname'] +' '+ users[i]['lastname'] %>
+  <% if(users[i]['is_online'] == 1){ %>
+  <span class="online-status" id="<%= users[i]['_id'] %>-status"><br>Online</span>
+  <%
+  }else{
+  %>
+  <span class="offline-status" id="<%= users[i]['_id'] %>-status"><br>Offline</span>
+ <%
+ }
+%>
+</li>
+<%
+}
+}
+%>
+</ul>
+</div><audio id="messageSound" src="music/mkcoding_sound.mp3" type="audio/mpeg"></audio>
+<h1 style="display: none;" id="data-user" data-user="<%= JSON.stringify(user) %>"></h1>
+  <div id="column-list" class="col-md-8-1p">
+    <h3 class="start-head" style="text-align: center;">Click to start the Chat</h3>
+    <div class="chat-section">
+      <div class="dispal_user">
+        <i class="fa fa-arrow-left left_row_show"></i>
+        <img id="user_image" src="" alt="User Image">
+        <div id="chat_section_user_name"></div>
+      </div>
+          <div id="chat-container">
+                <!-- <div class="current-user-chat">
+                    <h5>Hii</h5>
+                </div>
+                <div class="distance-user-chat">
+                    <h5>Hii</h5>
+                </div> -->
+        </div>
+        <form action="" id="chat-form">
+            <input autocomplete="off" class="border" type="text" name="message" placeholder="Enter message" id="message" required>
+            <input type="submit" value="Send" class="btn btn-primary">
+        </form>
+    </div>
+  </div>
+</div>
+  <!--delete Modal -->
+<div class="modal fade" id="deleteChatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+   <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLongTitle">Delete chat</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+   </div>
+  <form id="delete-chat-form">    
+  <div class="modal-body">
+  <input type="hidden" name="id" id="delete-message-id">
+  <p>Are you sure you want to delete below Message?</p>
+  <p><b id="delete-message"></b></p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<button type="submit" class="btn btn-danger">Delete</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+  <!--update Modal -->
+<div class="modal fade" id="editChatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLongTitle">Edit chat</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form id="update-chat-form">    
+  <div class="modal-body">
+    <input type="hidden" name="id" id="edit-message-id"><input type="text" name="message" id="update-message" required placeholder="Enter Message">
+  </div>
+  <div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button><button type="submit" class="btn btn-primary">Update</button>
+  </div>
+  </form>
+  </div>
+ </div>
+</div>
+<!-- delete group chat model -->
+<div class="modal fade" id="deleteGroupChatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title" id="exampleModalLongTitle">Delete chat</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span></button>
+    </div>
+<form id="delete-group-chat-form">
+<div class="modal-body"><input type="hidden" name="id" id="delete-group-message-id"><p>Are you sure you want to delete below Message?</p>
+ <p><b id="delete-message"></b></p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button><button type="submit" class="btn btn-danger">Delete</button>
+ </div>
+</form>
+ </div>
+</div>
+</div>
+<!-- update chat group modal -->
+  <div class="modal fade" id="editGroupChatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Edit chat</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <form id="update-group-chat-form">    
+        <div class="modal-body"><input type="hidden" name="id" id="edit-group-message-id"><input type="text" name="message" id="update-group-message" required placeholder="Enter Message">
+        </div>
+        <div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button><button type="submit" class="btn btn-primary">Update</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="show-preview-box"><div class="show-details"><span class="show-icon fas fa-times"></span></div><div class="show-img-box"><img src="" alt=""></div></div>
+<div class="show-shadow"></div>
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<%- include('../partials/footer2.ejs') %>
+<style>
+  body {font-family: Arial, sans-serif;overflow: hidden;overflow-y: auto;}
+  h2 {color: #333;}
+  ul.list-group {list-style: none;padding: 0;}
+  .list-group-item {display: flex;align-items: center;margin-bottom: 10px;background-color: #fff;padding: 10px;border: 1px solid #ccc;}
+  .user-list img,h2 .profile {width: 50px;height: 50px;margin-right: 10px;border-radius: 50%;}
+  .user-list:hover{transform: scale(1.1);background: #a0a0a0;box-shadow: inset 0 0 5px #fff,inset 0 0 5px #fff;}
+  .user-list img:hover{transform: scale(1.1);}
+  .online-status {color: green;margin-left: auto;}
+  .offline-status {color: red;margin-left: auto;}
+  .start-head {color: #fff;margin-top: 20px;}
+  .row{background: #333 !important;}
+  .chat-section {background-color: #fff;padding: 20px;padding-top: 1px; border: 1px solid #ccc;}
+  #chat-container {max-height: 500px;overflow-y: auto;border: 1px solid #ccc;padding: 10px;margin-bottom: 10px;}
+  #chat_section_user_name{height: 30px; font-size: 20px; font-family: math;font-weight: 800;padding-left: 7px;}
+  #chat-form {display: flex;justify-content: space-between;align-items: center;}
+  #message {flex-grow: 1;padding: 5px;border: 1px solid #ccc;}
+  .btn-primary {background-color: #007bff;color: #fff;border: none;padding: 6.75px 20px;border-radius: 0px 5px 5px 0px;cursor: pointer;}
+  .btn-danger {background-color: #dc3545;color: #fff;border: none;padding: 10px 20px;cursor: pointer;}
+  .border {transition: all 0.3s;outline: none;}
+  .border:focus {border-color: #27ae60 !important;box-shadow: inset 0 0 3px #2fd072 !important;}
+  .modal-title {color: #333;}
+  .list-group{width: 100%;}
+  .row{display: flex;width: 100%;overflow-y: auto;margin-top: 90px;margin-left: -8px;}
+  #row-list{width: 20%;overflow-y: scroll;
+        flex: 0 0 20%;
+        margin-top: 3px;
+        height: 87vh;}
+  #column-list{width: 65%;margin-top: 3px;}
+  .list-group-item{position: inherit;}
+  .list-group-item:focus, .list-group-item:hover {z-index: unset;text-decoration: none;}
+  /* for user */
+  .selected-user-chat {background: #a0a0a0; color: blue;}
+  .selected-user-chat2 {background: #fff; color: black;}
+  /* for user End */
+  .site-header{z-index: 5; height: 90px;}
+  #row-list .list-group{margin: 20px 0;}
+    .row{overflow-x: hidden;}
+    .dispal_user{display: flex;align-items: center;}
+  .row>*{padding-right: calc(var(--bs-gutter-x) * .1);margin-right: calc(-.1 * var(--bs-gutter-x)); margin-left: calc(-.1 * var(--bs-gutter-x));}
+  .left_row_show{display: none;padding-right: 15px;}
+  #user_image{width: 25px; height: 25px; border-radius: 50%;}
+  @media screen and (max-width:740px) {
+  #row-list{width: 25%;}
+  #column-list{width: 75%;}}
+  @media screen and (max-width:580px) {
+    .home_icon{display: none;}
+      .left_row_show{display: block;}
+      .row {width: 100%;overflow: hidden;display: flex;}
+      #row-list {width: 100%;overflow-y: scroll;flex: 0 0 100%;height: 87vh;}
+      #column-list {width: 100%;flex: 0 0 20%;top: 95px;background-color: lightgray;position: absolute;}
+      #column-list h3 {display: none;}
+    }
+  @media screen and (max-width:390px) {
+  nav{margin-right: 0px;}
+  #chat-container{padding: 0;}}
+  @media screen and (max-width:360px) {
+  nav{padding: 0;padding-right: 10px;}}
+  </style>
+  <script>
+    const userDataElement = document.getElementById('data-user');
+const userDatastore = userDataElement.getAttribute('data-user');
+const userObject = JSON.parse(userDatastore);
+localStorage.setItem('user', JSON.stringify(userObject));
+  </script>

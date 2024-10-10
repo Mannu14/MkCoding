@@ -1,0 +1,59 @@
+<head><title>Weekly Coding Contest</title></head>
+<%- include('../partials/navbar2') %>
+<style>
+*{margin: 0;padding: 0;box-sizing: border-box;font-family: 'Poppins',sans-serif;}
+.title-1 img{height: 68px !important;width: 68px !important;}
+.footer img{display: none !important;}
+body{overflow-y: scroll !important; background: #fff3f3;height: 84vh;}
+.maindiv{padding-left: 20px;}
+.right-links-main{width: 75%;}
+.coding-s{margin-top: 150px;}
+/* --  */
+.dark-theme .right-links-main, body.dark-theme{background: #111;}
+.dark-theme .right-links-main p {color: #f8f8f8;}
+.dark-theme .right-links-main h4 {color: #fff;}
+.dark-theme .right-links-main h3 {color: rgb(176, 77, 226);}
+.dark-theme .right-links-main a {color: #66FF00;}
+.dark-theme .right-links-main h5 {color: #ffff;}
+
+.light-theme .right-links-main, .light-theme body{background: #fff3f3;}
+.light-theme .right-links-main h5 {color: #000;}
+.light-theme .right-links-main h4 {color: #000;}
+.light-theme .right-links-main h3 {color: #800080;}
+.light-theme .right-links-main a {color: #008000;}
+@media screen and (max-width:550px) {
+    .right-links-main{
+        width: 100%;
+    }
+    .maindiv{
+        padding: 3px;
+    }
+}
+</style>
+<div class="coding-s">
+<div class="right-links-width">
+<div class="right-links-main">
+<% items.forEach(function(image,index){   
+%>
+<div class="maindiv" data-name="<%= image.uploadClass %>">
+  <h2 class="mainheading_h2"><a href=""><%= image.mainheading_h2%></a></h2>
+  <h3 class="mainheading_h3"><%= image.mainheading_h3%></h3>
+  <h4 class="mainheading_h4"><%= image.mainheading_h4%></h4>
+  <h5 class="mainheading_h5"><%= image.mainheading_h5%></h5>
+  <h6 class="mainheading_h6"><%= image.mainheading_h6%></h6>
+  <div id="headingImage" name="mainheading_file_2" class="mainheading_file_2 hidden-img blur-load"><img loading="lazy" src="Images/black-backGround.png" data-src="data:image/<%=image.img.contentType%>;base64,
+  <%=image.img.data.toString('base64')%>" name="image"  /></div>
+  <div class="code" style="color:white; height: 1000px; margin-bottom: 50px;"><br>
+  <label class="copy-run-label">Python</label><label class="copy-run-label"><button class="copy-button" data-target='editor-<%= index + 1 %>'>Copy</button></label>
+  <textarea class="editor" id='editor-<%= index + 1 %>' cols="600" rows="100"><%= image.textarea %></textarea>
+  </div>
+  <p class="mainheading_p"><%= image.mainheading_p%></p>
+  </div>
+<% }) %>
+</div>
+<div class="right-links-main2">
+    
+</div>
+</div>
+</div>
+<%- include('../partials/footer.ejs') %>

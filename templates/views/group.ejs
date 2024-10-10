@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"></head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <!-- Bootstrap JS -->
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- =============online offline status===== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.2/socket.io.js" ></script>
+    <!-- =============online offline status===== -->
+    <link rel="stylesheet" href="css/top.css">
+    <script src="js/top.js" defer></script>
+<body>
+<!--preloader start-->
+<div id="preloader-preloader">
+  <section class="preloader-body-container">
+   <div class="preloader-container">
+    <div class="preloader-ring"></div><div class="preloader-ring"></div><div class="preloader-ring"></div>
+    <div class="preloader-netflix"><span class="preloader-left"></span><span class="preloader-center-1"></span><span class="preloader-center-2"></span><span class="preloader-right"></span></div>
+    <span id="preloader-loding"></span>
+    <div class="preloader-point-loader"><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li></div>
+   </div>
+  </section>
+ </div>
+ <!--preloader End-->
+    <div class="">
+        <header class="site-header">
+            <div class="logo">
+                <a href="/"><img src="M.jpg" alt="Logo"></a>
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <ul class="list-unstyled components mb-5">
+                        <li class="active">
+                            <a href="/"><span class="fa fa-home mr-3"></span>Home</a>
+                        </li>
+        
+                        <li class="active active-group">
+                        <a href="/groups"><span class="fa fa-group mr-3"></span>All Groups</a>
+                        </li>
+        
+                        <li class="active">
+                        <a href="/group-chat"><span class="fa fa-commenting-o mr-3"></span>Group Chat</a>
+                        </li>
+        
+                        <li>
+                            <a href="/logoutchat"><span class="fa fa-sign-out mr-3"></span>Logout</a>
+                        </li>
+                    </ul>
+                </ul>
+            </nav>
+            
+        </header>
+    </div>
+    <div id="content" class="p-1 p-md-0 pt-1">
+</body>
+</html>
+<!-- ====page content=== -->
+<style>
+body, html {
+  margin: 0;
+  padding: 0;
+}
+#content{
+    width: 100%;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+.site-header {
+    position: fixed;
+    left: 0;
+    top:0;
+  background-color: #444;
+  color: #fff;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.site-header .logo {
+  padding: 0 20px;
+  flex: 1;
+}
+
+.site-header .logo a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+.logo img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.site-header .main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: contents;
+}
+
+.site-header .main-nav li {
+  margin-right: -2px;
+}
+
+.site-header .main-nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.site-header .main-nav a:hover {
+  color: #ccc;
+}
+
+.site-header .user-info {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+.site-header .user-info span {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.site-header .user-info a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.site-header .user-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+}
+
+nav {
+    background-color: #444;
+    color: #fff;
+    text-align: end;
+    margin-right: 20px;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+@media screen and (max-width:720px) {
+  .list-group{
+    width: 100%;
+  }
+  .row{
+    margin-top: 140px;
+  }
+}
+@media screen and (max-width:508px) {
+  .logo{
+    display: none;
+  }
+}
+@media screen and (max-width:408px) {
+  .site-header .user-info{
+    padding: 0 3px;
+  }
+}
+</style>
+
+<h2 class="mb-4">Hii, </h2>
+<link rel="stylesheet" href="css/index.css">
+<div class="container" style="margin-top: 100px;">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createGroupModal">
+    Create Group
+  </button>
+  <% if (typeof message !== 'undefined') { %>
+    <h4 style="color:green;" class="alert alert-danger mt-4"><%= message%></h4>
+<% } %>
+
+     <table class="table mt-4">
+      <thead>
+        <tr>
+          <th>S.NO</th>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Limit</th>
+          <th>Member</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%
+           if(groups.length > 0){
+            for(let i = 0; i < groups.length; i++){
+              %>
+                 <tr>
+                  <td><%= i+1 %></td>
+                  <td><img src="http://127.0.0.1:3000/<%= groups[i]['image'] %>" alt="<%= groups[i]['name'] %>" width="50px" height="50px"></td>
+                  <td><%= groups[i]['name'] %></td>
+                  <td><%= groups[i]['limit'] %></td>
+                  <td><a class="cursor-pointer addMember" data-id="<%= groups[i]['_id'] %>" data-limit="<%= groups[i]['limit'] %>" data-toggle="modal" data-target="#memberModal">Members</a></td>
+                  <td>
+                    <a class="updateMember" data-obj="<%= JSON.stringify(groups[i]) %>" data-toggle="modal" data-target="#updateGroupModal"><i class="fa fa-pencil"></i></a>
+                    <a class="deleteGroup" data-id="<%= groups[i]['_id'] %>" data-name="<%= groups[i]['name'] %>" data-toggle="modal" data-target="#deleteGroupModal"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;
+                    <a class="copy cursor-pointer" data-id="<%= groups[i]['_id'] %>"><i class="fa fa-copy"></i></a>
+                  </td>
+                 </tr>
+              <%
+            }
+           }else{
+            %>
+               <tr>
+                <td>No Groups Found!</td>
+               </tr>
+            <%
+           }
+        %>
+      </tbody>
+     </table>
+
+  <!-- Member Modal -->
+  <div class="modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Members</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="" id="add-member-form">
+             <div class="modal-body">
+               
+                <input type="hidden" name="group_id" id="group_id">
+                <input type="hidden" name="limit" id="limit">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Selest</th>
+                      <th>Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="2">
+                      <div class="addMemberTable">
+                        <table class="table addMembersInTable">
+
+                        </table>
+                      </div>
+                    </td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+             </div>
+             <div class="modal-footer">
+              <p id="add-member-error"></p>
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button type="submit" class="btn btn-primary">Update Member</button>
+             </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+  <!-- Modal -->
+  <div class="modal fade" id="createGroupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Create Groups</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="" enctype="multipart/form-data" method="POST">
+             <div class="modal-body">
+               
+                <input type="text" name="name" placeholder="Enter Group Name" required class="w-100 mb-2">
+                <input type="file" name="image" required class="w-100 mb-2">
+                <input type="number" name="limit" min="1" placeholder="Enter User limit" required class="w-100 mb-2">
+              
+             </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button type="submit" class="btn btn-primary">Create</button>
+             </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+    <!--Update Modal -->
+    <div class="modal fade" id="updateGroupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Update Groups</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form enctype="multipart/form-data" method="POST" id="updateChatGroupForm">
+               <div class="modal-body">
+                  <input type="hidden" name="id" id="update_group_id">
+                  <input type="hidden" name="last_limit" id="last_limit">
+                  <input type="text" name="name" id="group_name" placeholder="Enter Group Name" required class="w-100 mb-2">
+                  <input type="file"  id="file_name"  name="image" class="w-100 mb-2">
+                  <input type="number" id="group_limit" name="limit" min="1" placeholder="Enter User limit" required class="w-100 mb-2">
+
+                  <p><b>(Note)</b> If you enter the limit less than to previous limit we will remove the all users from your Group</p>
+                
+               </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                 <button type="submit" class="btn btn-warning">Update</button>
+               </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!--Delete Modal -->
+    <div class="modal fade" id="deleteGroupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Delete Groups</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form action="/delete-chat-group"  method="POST" id="deleteChatGroupForm">
+               <div class="modal-body">
+                  <input type="hidden" name="id" id="delete_group_id">
+                  
+                  <p>Are you sure you want to delete <b id="delete_group_name"></b> Group?</p>
+                
+               </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                 <button type="submit" class="btn btn-danger">Delete</button>
+               </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+ <style>
+  a:not([href]):not([tabindex]) {
+    color: blue;
+    text-decoration: none;
+}
+ </style> 
+
+
+
+<%- include('../partials/footer2.ejs') %>
+

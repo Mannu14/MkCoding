@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="M.jpg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link rel="stylesheet" href="css/free_image_dashboard.css">
+    <script src="js/free_image_dashboard.js" defer></script>
+    <link rel="stylesheet" href="css/top.css">
+    <script src="js/top.js" defer></script>
+</head>
+<body>
+    <!-- ------------- preloader start ---------------  -->
+  <div id="preloader-preloader">
+    <section class="preloader-body-container">
+        <div class="preloader-container">
+          <div class="preloader-ring"></div>
+          <div class="preloader-ring"></div>
+          <div class="preloader-ring"></div>
+          <div class="preloader-netflix">
+              <span class="preloader-left"></span>
+              <span class="preloader-center-1"></span>
+              <span class="preloader-center-2"></span>
+              <span class="preloader-right"></span>
+          </div>
+          <span id="preloader-loding"></span>
+          <div class="preloader-point-loader">
+              <li class="preloader-ring-loader"></li>
+              <li class="preloader-ring-loader"></li>
+              <li class="preloader-ring-loader"></li>
+              <li class="preloader-ring-loader"></li>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- ------------- preloader End ---------------  -->
+    <form action="/free_image_dashboard" method="POST" enctype="multipart/form-data">
+    <div class="wrapper">
+        <div class="upload-box">
+            
+            <img src="images/image.jpg">
+            <p>Browse File to upload</p>
+        </div>
+        <div class="content">
+            <div class="row sizes">
+                <div class="column width" hidden>
+                    <label>Width</label>
+                    <input type="number">
+                </div>
+                <div class="column height" hidden>
+                    <label>Height</label>
+                    <input type="number">
+                </div>
+            </div>
+           <div class="imageInput">
+            <input type="file" name="image" required>
+            <p>class :</p> 
+            <input type="text" class="inputClass" name="uploadClass" required>
+            heading : 
+            <input type="text" class="inputClass" name="heading">
+            h4 search :
+            <input type="text" class="inputClass" name="headinginh4">
+            <button type="submit" class="download-btn submit-button">Add Image</button>
+           </div>
+    </div>
+    </div>
+</form>
+</body>
+</html>

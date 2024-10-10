@@ -1,0 +1,86 @@
+<head><title>Website Project</title></head>
+<%- include('../partials/navbar2') %>
+<main>
+    <div class="left-1">
+<div class="left-links nav-links">
+<a href="/python" class="imageItem" data-name="python">Python</a>
+<a href="/WebsiteProject" class="imageItem selectedimageItem" data-name="WebD">Web Development</a>
+<a href="/DSA" class="imageItem selectedimageItem" data-name="DSA">Data Structure and Algorithm using python</a>
+<a href="/Array" class="imageItem" data-name="Array">Arrays</a>
+<a href="/Graph" class="imageItem" data-name="Graph">Graphs</a>
+<a href="/HashTable" class="imageItem" data-name="Hash_Table">Hash Tables</a>
+<a href="/Heap" class="imageItem" data-name="Heap">Heaps</a>
+<a href="/LinkedList" class="imageItem" data-name="LinkedList">Linked Lists</a>
+<a href="/Loops" class="imageItem" data-name="Loops">Loops </a>
+<a href="/Queue" class="imageItem" data-name="Queue">Queues </a>
+<a href="/Stack" class="imageItem" data-name="Stack">Stacks </a>
+<a href="/Tree" class="imageItem" data-name="Tree">Trees </a>
+<a href="/uploadcode" class="imageItem" data-name="uploadcode">Upload Code </a>
+<a href="/DP" class="imageItem" data-name="DP">Dinamic Programming</a>
+<a href="/Shoping" class="imageItem selectedimageItem" data-name="Shoping">Shoping </a>
+<a href="/blog" class="imageItem selectedimageItem" data-name="blog">Blogs </a>
+<a href="/hindiStory" class="imageItem selectedimageItem" data-name="hindiStory">Hindi Storys </a>
+<a href="/EnglishStorys" class="imageItem selectedimageItem" data-name="EnglishStory">English Storys </a>
+<a href="/videoplayer" class="imageItem">Watch videos</a>
+<a href="/weeklyContest" class="imageItem selectedimageItem">Weekly Contest</a>
+<a href="/WebD-paid-Project" class="imageItem selectedimageItem">WebD paid Project</a>
+<a href="/runShowProject" class="imageItem active selectedimageItem">WebD Projects</a>
+<a href="/realtimeProjects" class="imageItem selectedimageItem">Real Time Projects</a>
+<a href="/POTD" class="imageItem selectedimageItem">Problem Of The Day</a>
+</div>
+<div class="right-links">
+<div class="right-links-main">
+<%
+let i = 1;
+for (let item = 0; item < items.length; item++) {
+%>
+<div class="maindiv" data-name="<%= items[item].uploadClass %>">
+<h2 name="mainheading_h2" class="mainheading_h2"><a href=""><%= items[item].mainheading_h2%></a></h2>
+<div id="headingImage" name="mainheading_file_2" class="mainheading_file_2 hidden-img blur-load"><img loading="lazy" src="images/black-backGround.png" data-src="data:image/<%=items[item].img.contentType%>;base64,
+<%=items[item].img.data.toString('base64')%>" name="image" /></div>
+<div class="code-label-divs">
+<h3 name="mainheading_h3" class="mainheading_h3"><%= items[item].mainheading_h3%></h3>
+<div class="code code-label-div"><br>
+<label class="copy-run-label"> <a class="online-run" href="https://mkcoding.online/OnlineCompiler">Run</a> </label>
+<label class="copy-run-label"><button class="copy-button" data-target='editor-<%= i %>'>Copy</button></label>
+<textarea class="editor"name="textarea" id='editor-<%= i %>' cols="600" rows="100"><%= items[item].textarea_h4 %></textarea>
+</div>
+<h6 name="mainheading_h6" class="mainheading_h6"><%= items[item].mainheading_h6%></h6>
+<div class="code code-label-div"><br>
+<label class="copy-run-label"><a class="online-run" href="https://mkcoding.online/OnlineCompiler">Run</a></label>
+<label class="copy-run-label"><button class="copy-button" data-target='editor-<%= i + 1 %>'>Copy</button></label>
+<textarea class="editor"name="textarea" id='editor-<%= i + 1 %>' cols="600" rows="100"><%= items[item].textarea_h5 %></textarea>
+</div>
+<p name="mainheading_p" class="mainheading_p"><%= items[item].mainheading_p%></p>
+<div class="code code-label-div"><br>
+<label class="copy-run-label"><a class="online-run" href="https://mkcoding.online/OnlineCompiler">Run</a></label>
+<label class="copy-run-label"><button class="copy-button" data-target='editor-<%= i + 2 %>'>Copy</button></label>
+<textarea class="editor"name="textarea" id='editor-<%= i + 2 %>' cols="600" rows="100"><%= items[item].textarea %></textarea>
+</div>
+</div>
+</div>
+<%  
+i += 3;
+} %>
+</div>
+<div class="marquee-bottom"><marquee behavior="" direction="left" scrollamount="5" ><div class="div">Mk Studio jaipur rajasthan.</div></marquee></div>
+<%- include('../partials/footer') %></div></div>  
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+const projectLinks = document.querySelectorAll('.code-label-divs .online-run');
+projectLinks.forEach(projectLink => {
+  projectLink.addEventListener('click', function (event) {
+  event.preventDefault();
+  const currentURL = 'https://mkcoding.online/OnlineCompiler';
+  const h3Element = projectLink.closest('.maindiv').querySelector('h3');
+  const h3Value = h3Element.textContent;
+  if (currentURL == 'https://mkcoding.online/OnlineCompiler') {
+    updatePage(h3Value, currentURL);
+};});});
+function updatePage(page, currentURL) {
+if (currentURL) {
+  const url = new URL(currentURL, window.location.origin);
+  url.searchParams.set('Manish_search', page);
+  window.location.href = url.toString();
+};};});
+</script>

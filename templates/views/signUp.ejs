@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="M.jpg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="css/style3.css">
+    <script src="js/SignUp.js" defer></script>
+    <link rel="stylesheet" href="css/style6.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+</head>
+<body>
+    <div class="login-form">
+        <div class="container">
+            <h2 class="hadding"><span>Registration</span>  form</h2>
+            <hr/>
+   <div class="field">
+    <form action="/signUp" method="POST" enctype="multipart/form-data">
+    <p><input type="Name" autocomplete="off" name="firstname"  placeholder="First Name"></p>
+    <p><input type="Name" autocomplete="off" name="lastname" placeholder="Last Name"></p>
+    <p><input type="email" autocomplete="off" name="email" id="email" placeholder="name123@gmail.com"></p>
+    <p><input type="text" autocomplete="off" minlength="10" maxlength="10" name="phone" placeholder="Phone No*" value=""></p>
+    <p><input type="file" autocomplete="off" name="image" class="mainheading_file_2" required></p>
+    <p><input type="text" autocomplete="off" name="address"  placeholder="address where you live *"></p>
+    <p><input type="password" onkeyup="active()" id="pswrd_1" name="password"  placeholder="Password *"></p>
+       <div class="indicator">
+          <span class="weak"></span>
+          <span class="medium"></span>
+          <span class="strong"></span>
+       </div>
+    <div class="text">Your Password is too weak</div>
+    <p>
+        <input type="password" onkeyup="active_2()" id="pswrd_2" disabled name="confirmpassord"  placeholder="Confirm password *">
+        <p class="show">SHOW</p>
+   </p> <h3>Check Email</h3>
+   <p><input type="number" autocomplete="off" name="OTP"  placeholder="Enter OTP"></p>
+   <p class="submit-1"><input id="submit-btn" type="submit" value="Register"></p> 
+</form>
+<form action="/sendOtp" method="post">
+    <p><input type="email" id="email-OTP" autocomplete="off" name="email" placeholder="Confirm email : name123@gmail.com"></p>
+    <button id="sendOTP-email">Send OTP</button><div class="OtpTimer">.</div>
+</form>
+    <p class="Login"><a href="/login">Login</a></p> 
+   </div>
+    </div>
+    </div>
+    <p><% if (typeof message !== 'undefined') { %>
+        <h4 style="color:green;" class="alert alert-danger mt-4"><%= message%></h4>
+    <% } %></p>
+
+    <div class="wrapper-Network">
+        <div class="toast-Network">
+            <div class="content-Network">
+                <div class="icon-Network"><i class="uil uil-wifi"></i></div>
+                <div class="details-Network">
+                    <span>You're online now</span>
+                    <p>Hurray! Internet is connected.</p>
+                </div>
+            </div>
+            <div class="close-icon-Network"><i class="uil uil-times"></i></div>
+        </div>
+        <div class="progress-bar-Network">
+            <div class="progress-Network"></div>
+        </div>
+</div>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #f2f2f2;
+}
+.wrapper-Network{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    animation: show_toast 1s ease forwards;
+}
+@keyframes show_toast {
+    0%{
+        transform: translateX(-100%);
+    }
+    40%{
+        transform: translateX(10%);
+    }
+    80%, 100%{
+        transform: translateX(20px);
+    }
+}
+.wrapper-Network.hide{
+    animation: hide_toast 1s ease forwards ;
+}
+@keyframes hide_toast {
+    0%{
+        transform: translateX(20px);
+    }
+    40%{
+        transform: translateX(10%);
+    }
+    80%, 100%{
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(-100%);
+    }
+}
+.wrapper-Network .toast-Network{
+    background: #fff;
+    padding: 20px 15px 20px 20px;
+    border-radius: 10px 10px 1px 1px;
+    width: 430px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-left: 5px solid #2ecc71;
+    box-shadow: 1px 7px 14px -5px rgba(0,0,0,0.15);
+}
+.toast-Network .content-Network{
+    display: flex;
+    align-items: center;
+}
+.toast-Network .content-Network .icon-Network{
+    font-size: 25px;
+    background: #2ecc71;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+}
+.toast-Network .content-Network .details-Network{
+    margin-left: 15px;
+}
+.content-Network .details-Network span{
+    font-size: 20px;
+    font-weight: 600;
+}
+.content-Network .details-Network p{
+    color: #878787;
+}
+.toast-Network .close-icon-Network{
+    background: #f2f2f2;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 23px;
+    cursor: pointer;
+    color: #878787;
+    border-radius: 50%;
+}
+
+/* ----------------js------------ */
+
+.wrapper-Network .toast-Network.offline{
+    border-color: #ccc;
+}
+.toast-Network.offline .content-Network .icon-Network{
+    background: #ccc;
+}
+
+.wrapper-Network .progress-bar-Network {
+    width: 100%;
+    height: 10px;
+    background: #f2f2f2;
+    margin-top: 1px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.wrapper-Network .progress-Network {
+    width: 0%;
+    height: 100%;
+    background: #2ecc71; /* Green color for the progress bar */
+    transition: width 1s ease-in-out;
+}
+
+</style>
+
+</body>
+</html>

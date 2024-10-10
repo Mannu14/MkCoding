@@ -1,0 +1,86 @@
+<head>
+    <title>Projects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .title-1 img {
+            height: 68px !important;
+            width: 68px !important;
+        }
+
+        .footer img {
+            display: none !important;
+        }
+
+        body {
+            overflow: scroll !important;
+        }
+    </style>
+</head>
+<%- include('../partials/navbar2') %>
+    <div class="project-body">
+        <div class="project-container">
+            <% items.forEach(function(image){ %>
+                <div class="project-card" data-name="<%= image.uploadClass %>">
+                    <div class="project-box">
+                        <div class="project-content">
+                            <h2 class="mainheading_h2">
+                                <%= image.mainheading_h2 %>
+                            </h2>
+                            <h3 class="mainheading_h3">
+                                <%= image.mainheading_h3 %>
+                            </h3>
+                            <h6 class="mainheading_h3">
+                                <%= image.mainheading_h6 %>
+                            </h6>
+                            <p class="mainheading_p">
+                                <%= image.mainheading_p %>
+                            </p>
+                            <div class="read-more-btns">
+                                <a class="project-content-a" href="/<%= image.mainheading_h4 %>"><span>By NOW</span></a>
+                                <a href="<%= image.uploadID %>"><span>Watch</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+    </div>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
+    <div class="marquee-bottom">
+        <marquee behavior="" direction="left" scrollamount="5">
+            <div class="div">Mk Studio Sikar rajasthan.</div>
+        </marquee>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const projectContents = document.querySelectorAll('.project-content');
+                projectContents.forEach(projectContent => {
+                    const projectLink = projectContent.querySelector('.project-content-a');
+
+                    projectLink.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        const currentURL = projectLink.href;
+                        const h2Element = projectContent.querySelector('h6');
+                        const h2Value = h2Element.textContent;
+                        if (currentURL) {
+                            updatePage(h2Value, currentURL);
+                        }
+                    });
+                });
+                function updatePage(page, currentURL) {
+                    if (currentURL) {
+                        const url = new URL(currentURL, window.location.origin);
+                        url.searchParams.set('Manish_search', page);
+                        window.location.href = url.toString();
+                    }
+                }
+            });
+
+        </script>

@@ -1,0 +1,68 @@
+<head><title>Data Structures and Algorithms</title></head>
+<%- include('../partials/navbar2') %>
+<main>
+<div class="left-1">
+<div class="left-links nav-links">
+<a href="/python" class="imageItem" data-name="python">Python</a>
+<a href="/WebsiteProject" class="imageItem selectedimageItem" data-name="WebD">Web Development</a>
+<a href="/DSA" class="imageItem active selectedimageItem" data-name="DSA">Data Structure and Algorithm using python</a>
+<a href="/Array" class="imageItem" data-name="Array">Arrays</a>
+<a href="/Graph" class="imageItem" data-name="Graph">Graphs</a>
+<a href="/HashTable" class="imageItem" data-name="Hash_Table">Hash Tables</a>
+<a href="/Heap" class="imageItem" data-name="Heap">Heaps</a>
+<a href="/LinkedList" class="imageItem" data-name="LinkedList">Linked Lists</a>
+<a href="/Loops" class="imageItem" data-name="Loops">Loops </a>
+<a href="/Queue" class="imageItem" data-name="Queue">Queues </a>
+<a href="/Stack" class="imageItem" data-name="Stack">Stacks </a>
+<a href="/Tree" class="imageItem" data-name="Tree">Trees </a>
+<a href="/uploadcode" class="imageItem selectedimageItem" data-name="uploadcode">Upload Code </a>
+<a href="/DP" class="imageItem" data-name="DP">Dinamic Programming </a>
+<a href="/Shoping" class="imageItem selectedimageItem" data-name="Shoping">Shoping </a>
+<a href="/blog" class="imageItem selectedimageItem" data-name="blog">Blogs </a>
+<a href="/hindiStory" class="imageItem selectedimageItem" data-name="hindiStory">Hindi Storys </a>
+<a href="/EnglishStorys" class="imageItem selectedimageItem" data-name="EnglishStory">English Storys </a>
+<a href="/dashboardchat" class="imageItem selectedimageItem">Chat Each Other</a>
+<a href="/group-chat" class="imageItem selectedimageItem">group-chat</a>
+<a href="/videoplayer" class="imageItem">Watch videos</a>
+<a href="/weeklyContest" class="imageItem selectedimageItem">Weekly Contest</a>
+<a href="/WebD-paid-Project" class="imageItem selectedimageItem">WebD paid Project</a>
+<a href="/runShowProject" class="imageItem selectedimageItem">WebD Projects</a>
+<a href="/realtimeProjects" class="imageItem selectedimageItem">Real Time Projects</a>
+<a href="/POTD" class="imageItem selectedimageItem">Problem Of The Day</a>
+</div>
+<div class="right-links">
+  <div class="right-links-width">
+  <div class="right-links-main">
+    <% var displayIndex = 1;%>
+    <% items.forEach(function(image,index){   
+      if (image.uploadClass === "DSA") { %>
+        <div class="maindiv" data-name="<%= image.uploadClass %>">
+          <h2 class="mainheading_h2"><a href=""><%= image.mainheading_h2%></a></h2>
+          <h3 class="mainheading_h3"><%= image.mainheading_h3%></h3>
+          <h4 class="mainheading_h4"><%= image.mainheading_h4%></h4>
+          <h5 class="mainheading_h5"><%= image.mainheading_h5%></h5>
+          <h6 class="mainheading_h6"><%= image.mainheading_h6%></h6>
+          <div id="headingImage" name="mainheading_file_2" class="mainheading_file_2 hidden-img blur-load">
+            <img loading="lazy" src="Images/black-backGround.png" data-src="data:image/<%=image.img.contentType%>;base64,
+            <%=image.img.data.toString('base64')%>" name="image"  />
+          </div>
+          <div class="code" style="color:white; height: 1000px; margin-bottom: 50px;">
+            <br>
+            <label class="copy-run-label">Python</label>
+            <label class="copy-run-label">
+              <button class="copy-button" data-target='editor-<%= displayIndex %>'>Copy</button>
+            </label>
+            <textarea class="editor" id='editor-<%= displayIndex %>' cols="600" rows="100"><%= image.textarea %></textarea>
+          </div>
+          <p class="mainheading_p"><%= image.mainheading_p%></p>
+        </div>
+        <% displayIndex++;%>
+    <% } }) %>
+  </div>
+  <div class="right-links-main2">
+    
+  </div>
+</div>
+<div class="marquee-bottom"><marquee behavior="" direction="left" scrollamount="5" ><div class="div">Mk Studio Sikar rajasthan.</div></marquee></div>
+<%- include('../partials/footer') %> </div></div>
+</main>

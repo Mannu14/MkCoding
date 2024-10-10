@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="M.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Website</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="css/Shoping.css">
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+    <div class="show-preview-box"><div class="show-details"><span class="show-icon fas fa-times"></span></div><div class="show-img-box"><img src="" alt=""></div></div>
+    <div class="show-shadow"></div>
+    <!-- preloader start-->
+    <div id="preloader-preloader">
+    <section class="preloader-body-container">
+    <div class="preloader-container"><div class="preloader-ring"></div><div class="preloader-ring"></div><div class="preloader-ring"></div>
+    <div class="preloader-netflix"><span class="preloader-left"></span><span class="preloader-center-1"></span><span class="preloader-center-2"></span><span class="preloader-right"></span></div>
+    <span id="preloader-loding"></span>
+    <div class="preloader-point-loader"><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li></div>
+    </div>
+    </section>
+    </div>
+    <!-- preloader End -->
+<header style="width: 100%;">
+<a href="/"><div class="title-1 loader-css-2"><img src="M.jpg" alt="Manish"></div></a>
+<div class="title-2"><label>Mk <span>Coding</span></label></div>
+<form id="search-form"><div class="search-input">
+<input type="text" name="search" id="search-input" placeholder="Type to Search...">
+<div class="icon search-button"><button type="submit"  style="border: none; font-size: 20px;background: none; cursor: pointer;" ><i class="fas fa-search"></i></button></div>
+</div>
+</form>
+</header>
+<!--body -->
+<% item1.forEach(function(item){   
+%>
+<div class="hover-Zoom-img-container">
+<div class="hover-Zoom-img-pictures">
+  <img class="hover-Zoom-img-pictures-image" loading="lazy" src="images/black-backGround.png" data-src="<%= item.file1 %>" alt="" id="hover-Zoom-img-pic1">
+  <img class="hover-Zoom-img-pictures-image" loading="lazy" src="images/black-backGround.png" data-src="<%= item.file2 %>" alt="" id="hover-Zoom-img-pic2">
+  <img class="hover-Zoom-img-pictures-image" loading="lazy" src="images/black-backGround.png" data-src="<%= item.file3 %>" alt="" id="hover-Zoom-img-pic3">
+  <img class="hover-Zoom-img-pictures-image" loading="lazy" src="images/black-backGround.png" data-src="<%= item.file4 %>" alt="" id="hover-Zoom-img-pic4">
+  <img class="hover-Zoom-img-pictures-image" loading="lazy" src="images/black-backGround.png" data-src="<%= item.file5 %>" alt="" id="hover-Zoom-img-pic4">
+  <img class="hover-Zoom-img-pictures-image" loading="lazy" src="images/black-backGround.png" data-src="<%= item.file6 %>" alt="" id="hover-Zoom-img-pic4">
+</div>
+<div class="hover-Zoom-img-picture" id="hover-Zoom-img-picture">
+  <div class="hover-Zoom-img-rect" id="hover-Zoom-img-rect"></div>
+  <img loading="lazy" src="images/black-backGround.png" data-src="<%= item.file1 %>" alt="" id="hover-Zoom-img-pic">
+</div>
+<div class="all-details-show">
+  <li style="display: none;"><%=item.uploadID%></li>
+  <h4 class="mainheading_h4"><%= item.mainheading_h4 %></h4><hr>
+  <h2 class="mainheading_h2"><%=item.mainheading_h2%></h2>
+  <h3 class="mainheading_h3">Prize : <%=item.mainheading_h3%></h3>
+  <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="uil uil-star"></i></div>
+  <button><a name="mainheading_h6" class="mainheading_h6" href="<%= item.mainheading_h6 %>">Shop Now</a></button>
+</div>
+<div style="background-image: url('<%= item.file1 %>');" class="hover-Zoom-img-zoom" id="hover-Zoom-img-zoom"></div>
+<p class="mainheading_p"><%=item.mainheading_p%></p>
+</div>
+<% }) %>
+<div id="links-container">
+<main class="mainsection right-links-main">
+<% items.forEach(function(image){   
+%>
+<div class="maindiv" data-name="<%= image.uploadClass %>">
+<section class="products">
+  <div class="product-card mainsection-product-card mainheading_file_2">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="<%= image.file6 %>" name="image" loading="lazy" /></div>    
+  <li style="display: none;"><%=image.uploadID%></li>
+  <h4 name="mainheading_h4" class="mainheading_h4"><%=image.mainheading_h2%></h4>
+  <p name="mainheading_p" class="mainheading_p">Prize : <%=image.mainheading_h3%></p>
+  <button><a name="mainheading_h6" class="mainheading_h6" href="<%= image.mainheading_h6%>">Shop Now</a></button>
+  <button><a href="https://mkcoding.online/shopnow">watch More</a></button>
+  </div>
+</section>
+</div>
+<%
+}) %>     
+</main></div>
+<main>
+<section class="products">
+<div class="product-card product-card-3">
+ <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/Galaxy S23 ultra 134499.png" loading="lazy" alt="Product 1"></div>
+ <h3> Samsung Galaxy S23 Ultra 5G in Phantom Black - a flagship smartphone with 12GB RAM and 256GB storage, delivering exceptional performance. Experience cutting-edge technology and stunning visuals in a sleek and powerful package.</h3>
+ <p>prize : $1,627.36</p>
+ <button><a href="https://amzn.to/44Qefg6">Read More</a></button><button><a href="blog">watch More</a></button>
+ </div>
+<div class="product-card product-card-3">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/oppo A17 --12499.png" loading="lazy" alt="Product 1"></div>
+  <h3>Oppo A17 (Midnight Black, 4GB RAM, 64GB Storage) with No Cost EMI/Additional Exchange Offers</h3><p>prize : $151.79</p>
+  <button><a href="https://amzn.to/3DEGAtR">Read More</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card product-card-3">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/oppo A78 12000.png" loading="lazy" alt="Product 1"></div>
+  <h3>Oppo A78 5G, now available in Glowing Blue color with an impressive 8GB RAM and 128GB Storage! This powerful smartphone comes equipped with a massive 5000 mAh Battery and a 33W SUPERVOOC Charger for ultra-fast charging.</h3>
+  <p>prize : $147.23</p>
+  <button><a href="https://amzn.to/47s50EL">Read More</a></button><button><a href="blog">watch More</a></button>
+</div>
+</section>
+</main>
+<main>
+<section class="products">
+<div class="product-card">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/oppo reno 8 -29990.png" loading="lazy" alt="Product 1"></div>
+  <h3>Oppo Reno8 5G (Shimmer Black, 128 GB) (8 GB RAM)</h3><p>prize : $200</p>
+  <button><a href="https://amzn.to/459Sesp">Read More</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/samsang galexy Z flip- -99999.png" loading="lazy" alt="Product 1"> </div>
+  <h3>Samsung Galaxy Z Flip5 5G (Graphite, 8GB RAM, 256GB Storage)</h3><p>prize : $1000.78</p>
+  <button><a href="https://amzn.to/456S4C4">Read More</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+   <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/vivo v23 5G 29999.png" loading="lazy" alt="Product 1"></div>
+   <h3>Vivo V23 5G (Stardust Black, 12GB RAM, 256GB Storage)</h3><p>Prize : $200.12</p>
+   <button><a href="https://amzn.to/44OtztK">Read More</a></button><button><a href="blog">watch More</a></button>
+</div>
+<div class="product-card">
+  <div class="blur-load shoping-page-img"><img src="images/black-backGround.png" data-src="images/vivo v27 5G 32000.png" loading="lazy" alt="Product 1"></div>
+  <h3>Smartphone V27 5G | 12GB RAM 256GB ROM | Magic Blue</h3><p>Prize : $220.12</p>
+  <button><a href="https://amzn.to/3QubcFQ">Read More</a></button><button><a href="blog">watch More</a></button>
+</div>
+</section>
+</main>
+<div id="imgshowhidden"></div>
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
+<footer><p>&copy; 2023 Shopping Website. All rights reserved.</p></footer>
+<style>
+body{overflow-x: hidden;}
+header {background-color: #333; color: #fff; padding: 0 10px 5px 10px;display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.title-1,.title-2{position: absolute;left: 0;align-items: left;}
+#search-form {margin-left: auto;margin-right: 18px;align-items: center;min-width: 40%;}
+.search-input {position: relative;background: #e6e0e0;width: 100%;height: 50px;border-radius: 5px;}
+.search-input input {background: #f5f5f5;height: 50px;width: 100%;outline: none;border: none;border-radius: 5px 5px 0 0;padding: 0 0px 0 20px;font-size: 18px;}
+.search-input .icon {height: 55px;line-height: 55px;position: absolute;top: 0;right: 0;text-align: center;font-size: 20px;color: #644bff;cursor: pointer;right: -10px;}
+.icon button{color: black;}
+</style>
+<link rel="stylesheet" href="css/top.css">
+<script src="js/top.js"></script>
+<script src="js/shopingblog.js"></script>
+</body>
+</html>
