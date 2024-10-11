@@ -232,4 +232,43 @@ nav a {
     </div>
 </div>
 
-<%- include('../partials/footer.ejs') %>
+<head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></head>
+<div class="footer"><div class="footer-1"><h3>Quick Links</h3><a href="/">Home</a><a href="/python">Python</a><a href="/DSA">Data Structure</a><a href="/WebsiteProject">Web Development</a><h4><a href="Projects">webD Projects</a></h4><a href="Shoping">Shoping</a><a href="POTD">Problem of the Day</a></div>
+<div class="footer-2"><h4>Contact US</h4><h5>Email :<a href="/contactUs">Send me xxxx12@yy.gmail.com</a></h5><h5>Address :<a href="/contactUs">Sikar Rajasthan</a></h5><img src="MkCoding-2.png" alt="Manish"><img src="MkCoding-14.png" alt="Manish"></div>
+<div class="footer-3">
+<h4>social Connect</h4>
+<div class="social-icon">
+  <a href="https://t.me/mkcoding_online"><i class="fa fa-telegram"></i></a>
+  <a href="https://amzn.to/3rUHwYw"><i class="fa fa-amazon"></i></a>
+  <a href="https://www.instagram.com/mkcoding.online/"><i class="fa fa-instagram"></i></a>
+  <a href="https://www.youtube.com/@mkcoding.online"><i class="fa fa-youtube-play"></i></a>
+</div>
+<img src="Creative team-pana 1.png" alt="Manish">
+<h3>Mk Coding </h3>
+</div>
+</div>
+<div class="lines">
+ <div class="line"></div>
+ <div class="under-line">
+ <p>&copy; 2023 MK</p><h5>Powered by MK CODING</h5>
+</div>
+</div> 
+<script>
+  function showtext() {
+    var i = 1;
+    while (document.getElementById(`editor-${i}`)) {
+      var editor = Mkcoding.fromTextArea(document.getElementById(`editor-${i}`), {
+        mode: "text/x-python",
+        theme: "dracula",
+        lineNumbers: true,
+        autoCloseBrackets: true,
+      });
+      i++;
+    }
+  }
+  
+  showtext();
+  
+  </script>
+</body>
+</html>

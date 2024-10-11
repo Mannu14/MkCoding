@@ -1,4 +1,86 @@
-<%- include('../partials/header.ejs') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mkcoding chat </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"></head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <!-- Bootstrap JS -->
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ <!-- =============online offline status===== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.2/socket.io.js" ></script>
+    <!-- =============omnline offline status===== -->
+    <link rel="stylesheet" href="css/top.css">
+    <script src="js/top.js" defer></script>
+<body>
+<!-- preloader start-->
+<div id="preloader-preloader">
+ <section class="preloader-body-container">
+  <div class="preloader-container"><div class="preloader-ring"></div><div class="preloader-ring"></div><div class="preloader-ring"></div>
+  <div class="preloader-netflix"><span class="preloader-left"></span><span class="preloader-center-1"></span><span class="preloader-center-2"></span><span class="preloader-right"></span></div>
+  <span id="preloader-loding"></span>
+  <div class="preloader-point-loader"><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li><li class="preloader-ring-loader"></li></div>
+</div>
+</section>
+</div>
+<!--preloader End-->
+<div class="">
+ <header class="site-header">
+ <div class="logo"><a href="/"><img src="M.jpg" alt="Logo"></a></div>
+ <div class="user-info"><img src="<%= user.image %>" alt="User Avatar"><br><span><%= user.firstname %> <%= user.lastname %></span></div>
+ <nav class="main-nav">
+ <ul>
+<ul class="list-unstyled components mb-5">
+<li class="active home_icon"><a href="/"><span class="fa fa-home mr-3"></span>Home</a></li>
+<li class="active"><a href="/groups"><span class="fa fa-group mr-3"></span>All Groups</a></li>
+<li class="active"><a href="/group-chat"><span class="fa fa-commenting-o mr-3"></span>Group Chat</a></li>
+<li><a href="/logoutchat"><span class="fa fa-sign-out mr-3"></span>Logout</a></li>
+</ul>
+</ul>
+</nav>
+</header>
+</div>
+<div id="content" class="p-1 p-md-0 pt-1">
+</body>
+</html>
+<!--page content-->
+<style>
+body, html {margin: 0;padding: 0;}
+#content{width: 100%;}
+body {font-family: Arial, sans-serif;background-color: #f0f0f0;color: #333;}
+.site-header {position: fixed;left: 0;top:0;background-color: #444;color: #fff;padding: 10px 0;display: flex;justify-content: space-between;align-items: center;width: 100%;}
+.site-header .logo {padding: 0 20px;flex: 1;}
+.site-header .logo a {text-decoration: none;color: #fff;font-size: 24px;font-weight: bold;}
+.logo img{width: 60px;height: 60px;border-radius: 50%;}
+.site-header .main-nav ul {list-style: none;padding: 0;margin: 0;display: contents;}
+.site-header .main-nav li {margin-right: -2px;}
+.site-header .main-nav a {text-decoration: none;color: #fff;font-weight: bold;transition: color 0.3s ease;}
+.site-header .main-nav a:hover {color: #ccc;}
+.site-header .user-info {padding: 0 20px;display: flex;align-items: center;}
+.site-header .user-info span {margin-right: 10px;font-weight: bold;}
+.site-header .user-info a {text-decoration: none;color: #fff;font-weight: bold;}
+.site-header .user-info img {width: 40px;height: 40px;border-radius: 50%;}
+header {background-color: #333;color: #fff;text-align: center;padding: 1rem;width: 100%;}
+nav {background-color: #444;color: #fff;text-align: end;margin-right: 20px;padding: 0.5rem;width: 100%;}
+nav ul {list-style: none;}
+nav li {display: inline-block;margin: 0 1rem;}
+nav a {text-decoration: none;color: #fff;}
+@media screen and (max-width:720px) {
+  .list-group{width: 100%;}
+  .row{margin-top: 140px;}}
+@media screen and (max-width:508px) {
+  .logo{display: none;}}
+@media screen and (max-width:408px) {
+  .site-header .user-info{padding: 0 3px;}}
+</style>
 <link rel="stylesheet" href="css/index.css">
 <div class="row">
 <div id="row-list" class="col-md-0 right-links-main">
@@ -129,7 +211,52 @@
   <div class="show-preview-box"><div class="show-details"><span class="show-icon fas fa-times"></span></div><div class="show-img-box"><img src="" alt=""></div></div>
 <div class="show-shadow"></div>
   <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-<%- include('../partials/footer2.ejs') %>
+  <script src="js/jquery.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+      const chatSectionUserName = document.getElementById('chat_section_user_name');
+      const listGroupUserNames = document.querySelectorAll('.list-group .user-list');
+      const rowList = document.getElementById('row-list');
+      const columnList = document.getElementById('column-list');
+      const handleUserClick = (userListItem) => {
+        const clickedUserName = userListItem.textContent.trim().replace(/(?:Online|Offline)$/i, '');
+        const clickedUserImageURL = userListItem.querySelector('.mainheading_file_2 img').src;
+      const userImageElement = document.getElementById('user_image');
+      userImageElement.src = clickedUserImageURL;
+        chatSectionUserName.innerText = clickedUserName;
+        columnList.style.transform = 'translateX(0%)';
+      };
+      listGroupUserNames.forEach(userListItem => {
+        userListItem.addEventListener('click', () => {
+          handleUserClick(userListItem);
+        });
+      });
+      const leftRowShow = document.querySelector('.left_row_show');
+      leftRowShow.addEventListener('click', function () {
+        columnList.style.transform = 'translateX(200%)';
+      });
+      window.addEventListener('resize', function () {
+        if (window.innerWidth <= 580) {
+          listGroupUserNames.forEach(userListItem => {
+            userListItem.removeEventListener('click', handleUserClick);
+          });
+          leftRowShow.removeEventListener('click', function () {
+            columnList.style.transform = 'translateX(100%)';
+          });
+        } else {
+          listGroupUserNames.forEach(userListItem => {
+            userListItem.addEventListener('click', () => {
+              handleUserClick(userListItem);
+            });
+          });
+          leftRowShow.addEventListener('click', function () {
+            columnList.style.transform = 'translateX(100%)';
+          });
+        }
+      });
+    });
+    </script>
 <style>
   body {font-family: Arial, sans-serif;overflow: hidden;overflow-y: auto;}
   h2 {color: #333;}

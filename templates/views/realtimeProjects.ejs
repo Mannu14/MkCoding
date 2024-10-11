@@ -1,67 +1,175 @@
-<head><title>Real Time Projects</title></head>
-<%- include('../partials/navbar2') %>
-<!-- Start -->
-<% items.forEach(function(item,index){   
-%>
-<div class="Realmaindiv" data-name="<%= item.uploadClass %>">
- <h2 class="Realmaindiv_h2"><a href=""><%= item.mainheading_h2%></a></h2>
- <h3 class="Realmaindiv_h3"><a href="#"><%= item.mainheading_h3%></a></h3>
- <h4 class="Realmaindiv_h6"><a href=""><%= item.mainheading_h6%></a></h4>
- <div class="hiddenproject">
-  <div class="hiddenproject-1">
-   <div class="hiddenproject-t1"><textarea cols="30" rows="1" class='html-code'><%= item.textarea_h4 %></textarea></div>
-   <div class="hiddenproject-t2"><textarea cols="30" rows="1" class='css-code'><%= item.textarea_h5 %></textarea></div>
-   <div class="hiddenproject-t3"><textarea cols="30" rows="1" class='js-code'><%= item.textarea %></textarea></div>
-  </div>
- </div>
- <div class="Run-Output" ><button class="Btn-runcode">Start</button><iframe class="Show-output"></iframe></div>
-</div>
-<% }) %>
-<!-- end -->
-<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
-<script>
-function runcode(RunOutput) {
- let htmlTextarea = RunOutput.querySelector('.hiddenproject-t1 textarea');
- let cssTextarea = RunOutput.querySelector('.hiddenproject-t2 textarea');
- let jsTextarea = RunOutput.querySelector('.hiddenproject-t3 textarea');
- let output = RunOutput.querySelector('.Show-output');
- if (htmlTextarea && cssTextarea && jsTextarea) {
-    let htmlcode = htmlTextarea.value;
-    let csscode = cssTextarea.value;
-    let jscode = jsTextarea.value;
-    output.contentDocument.body.innerHTML = htmlcode + "<style>" + csscode + "</style>";
-    output.contentWindow.eval(jscode);
-    } else {
-      console.error('elements not found.');
-    }
-}
-document.addEventListener('DOMContentLoaded', function () {
- document.querySelectorAll('.Realmaindiv').forEach(RunOutput => {
-   const BtnRunCode = RunOutput.querySelector('.Btn-runcode');
-   const Show_output = RunOutput.querySelector('.Show-output');
-   BtnRunCode.addEventListener('click', function () {
-   // Hide all other Show_output elements
-   document.querySelectorAll('.Run-Output').forEach(otherRunOutput => {
-   const otherShowOutput = otherRunOutput.querySelector('.Show-output');
-   if (otherRunOutput !== RunOutput) {
-    otherShowOutput.style.display = "none";
-    BtnRunCode.textContent = "Start";
-   }
-  });
-// Toggle the display of the clicked Show_output element
- if (Show_output.style.display === "block") {
-    Show_output.style.display = "none";
-    BtnRunCode.textContent = "Start";
- } else {
-    Show_output.style.display = "block";
-    BtnRunCode.textContent = "Start . . .";
-    runcode(RunOutput);
- }
-});});});
-</script>
-<style>body{overflow-y: scroll;overflow-x: hidden;}
-body.dark-theme{background: #333;}
-body.dark-theme .Realmaindiv_h3 a,body.dark-theme .Realmaindiv_h6 a{color: #f8f8f8;}
-</style>
+<head>
+   <title>Real Time Projects</title>
+</head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <link rel="shortcut icon" type="x-icon" href="M.jpg">
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <!--codeing web -->
+   <link rel="stylesheet" href="Codingweb/lib/Mkcoding.css">
+   <script src="Codingweb/lib/Mkcoding.js"></script>
+   <script src="Codingweb/mode/python/python.js"></script>
+   <link rel="stylesheet" href="Codingweb/theme/Mkcoding_style.css">
+   <script src="Codingweb/close/Mkcodingclose.js"></script>
+   <!--codeing web end= -->
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/style2.css">
+   <link rel="stylesheet" href="css/textarea.css">
+   <script src="js/style2.js" defer></script>
+   <link rel="stylesheet" href="css/top.css">
+   <script src="js/top.js" defer></script>
+</head>
+
+<body class="light-theme">
+   <!-- preloader start   -->
+   <div id="preloader-preloader">
+      <section class="preloader-body-container">
+         <div class="preloader-container">
+            <div class="preloader-ring"></div>
+            <div class="preloader-ring"></div>
+            <div class="preloader-ring"></div>
+            <div class="preloader-netflix"><span class="preloader-left"></span><span
+                  class="preloader-center-1"></span><span class="preloader-center-2"></span><span
+                  class="preloader-right"></span></div>
+            <span id="preloader-loding"></span>
+            <div class="preloader-point-loader">
+               <li class="preloader-ring-loader"></li>
+               <li class="preloader-ring-loader"></li>
+               <li class="preloader-ring-loader"></li>
+               <li class="preloader-ring-loader"></li>
+            </div>
+         </div>
+      </section>
+   </div>
+   <!-- preloader End -->
+   <nav>
+      <div class="head">
+         <div class="title-1 loader-css-2"><img src="M.jpg" alt="Manish"></div>
+         <div class="title-2"><label>Mk <span>Coding</span></label></div>
+         <div class="search-bar">
+            <div class="wrapper">
+               <form id="search-form">
+                  <div class="search-input">
+                     <input autocomplete="off" type="text" name="Manish_search" id="search-input"
+                        placeholder="Type to Search...">
+                     <div class="icon search-button"><button type="submit"
+                           style="border: none; font-size: 20px;background: none; cursor: pointer;"><i
+                              class="fas fa-search"></i></button></div>
+                     <div class="autocom-box">
+                        <li>Login From in HTML</li>
+                     </div>
+                  </div>
+               </form>
+            </div>
+            <div class="theamchanger"><button id="themeToggle" class="loader-css"><i id="themeIcon"
+                     class="fas fa-sun"></i></button></div>
+         </div>
+         <div class="title-3">
+            <div class="wrapper-a">
+               <div class="display-a">
+                  <div id="time">12:00:00 PM</div>
+               </div>
+               <span></span><span></span>
+            </div>
+            <a href="profile" class="sign-up profile-Image-icon"><i class="fa fa-user"></i></a>
+         </div>
+      </div>
+   </nav>
+   <div class="show-preview-box">
+      <div class="show-details"><span class="show-icon fas fa-times"></span></div>
+      <div class="show-img-box"><img src="" alt=""></div>
+   </div>
+   <div class="show-shadow"></div>
+   <!-- Start -->
+   <% items.forEach(function(item,index){ %>
+      <div class="Realmaindiv" data-name="<%= item.uploadClass %>">
+         <h2 class="Realmaindiv_h2"><a href="">
+               <%= item.mainheading_h2%>
+            </a></h2>
+         <h3 class="Realmaindiv_h3"><a href="#">
+               <%= item.mainheading_h3%>
+            </a></h3>
+         <h4 class="Realmaindiv_h6"><a href="">
+               <%= item.mainheading_h6%>
+            </a></h4>
+         <div class="hiddenproject">
+            <div class="hiddenproject-1">
+               <div class="hiddenproject-t1"><textarea cols="30" rows="1"
+                     class='html-code'><%= item.textarea_h4 %></textarea></div>
+               <div class="hiddenproject-t2"><textarea cols="30" rows="1"
+                     class='css-code'><%= item.textarea_h5 %></textarea></div>
+               <div class="hiddenproject-t3"><textarea cols="30" rows="1"
+                     class='js-code'><%= item.textarea %></textarea></div>
+            </div>
+         </div>
+         <div class="Run-Output"><button class="Btn-runcode">Start</button><iframe class="Show-output"></iframe></div>
+      </div>
+      <% }) %>
+         <!-- end -->
+         <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
+         <script>
+            function runcode(RunOutput) {
+               let htmlTextarea = RunOutput.querySelector('.hiddenproject-t1 textarea');
+               let cssTextarea = RunOutput.querySelector('.hiddenproject-t2 textarea');
+               let jsTextarea = RunOutput.querySelector('.hiddenproject-t3 textarea');
+               let output = RunOutput.querySelector('.Show-output');
+               if (htmlTextarea && cssTextarea && jsTextarea) {
+                  let htmlcode = htmlTextarea.value;
+                  let csscode = cssTextarea.value;
+                  let jscode = jsTextarea.value;
+                  output.contentDocument.body.innerHTML = htmlcode + "<style>" + csscode + "</style>";
+                  output.contentWindow.eval(jscode);
+               } else {
+                  console.error('elements not found.');
+               }
+            }
+            document.addEventListener('DOMContentLoaded', function () {
+               document.querySelectorAll('.Realmaindiv').forEach(RunOutput => {
+                  const BtnRunCode = RunOutput.querySelector('.Btn-runcode');
+                  const Show_output = RunOutput.querySelector('.Show-output');
+                  BtnRunCode.addEventListener('click', function () {
+                     // Hide all other Show_output elements
+                     document.querySelectorAll('.Run-Output').forEach(otherRunOutput => {
+                        const otherShowOutput = otherRunOutput.querySelector('.Show-output');
+                        if (otherRunOutput !== RunOutput) {
+                           otherShowOutput.style.display = "none";
+                           BtnRunCode.textContent = "Start";
+                        }
+                     });
+                     // Toggle the display of the clicked Show_output element
+                     if (Show_output.style.display === "block") {
+                        Show_output.style.display = "none";
+                        BtnRunCode.textContent = "Start";
+                     } else {
+                        Show_output.style.display = "block";
+                        BtnRunCode.textContent = "Start . . .";
+                        runcode(RunOutput);
+                     }
+                  });
+               });
+            });
+         </script>
+         <style>
+            body {
+               overflow-y: scroll;
+               overflow-x: hidden;
+            }
+
+            body.dark-theme {
+               background: #333;
+            }
+
+            body.dark-theme .Realmaindiv_h3 a,
+            body.dark-theme .Realmaindiv_h6 a {
+               color: #f8f8f8;
+            }
+         </style>
 </body>
+
 </html>

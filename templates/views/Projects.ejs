@@ -22,7 +22,91 @@
         }
     </style>
 </head>
-<%- include('../partials/navbar2') %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" type="x-icon" href="M.jpg">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!--codeing web -->
+    <link rel="stylesheet" href="Codingweb/lib/Mkcoding.css">
+    <script src="Codingweb/lib/Mkcoding.js"></script>
+    <script src="Codingweb/mode/python/python.js"></script>
+    <link rel="stylesheet" href="Codingweb/theme/Mkcoding_style.css">
+    <script src="Codingweb/close/Mkcodingclose.js"></script>
+    <!--codeing web end= -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/textarea.css">
+    <script src="js/style2.js" defer></script>
+    <link rel="stylesheet" href="css/top.css">
+    <script src="js/top.js" defer></script>
+</head>
+
+<body class="light-theme">
+    <!-- preloader start   -->
+    <div id="preloader-preloader">
+        <section class="preloader-body-container">
+            <div class="preloader-container">
+                <div class="preloader-ring"></div>
+                <div class="preloader-ring"></div>
+                <div class="preloader-ring"></div>
+                <div class="preloader-netflix"><span class="preloader-left"></span><span
+                        class="preloader-center-1"></span><span class="preloader-center-2"></span><span
+                        class="preloader-right"></span></div>
+                <span id="preloader-loding"></span>
+                <div class="preloader-point-loader">
+                    <li class="preloader-ring-loader"></li>
+                    <li class="preloader-ring-loader"></li>
+                    <li class="preloader-ring-loader"></li>
+                    <li class="preloader-ring-loader"></li>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- preloader End -->
+    <nav>
+        <div class="head">
+            <div class="title-1 loader-css-2"><img src="M.jpg" alt="Manish"></div>
+            <div class="title-2"><label>Mk <span>Coding</span></label></div>
+            <div class="search-bar">
+                <div class="wrapper">
+                    <form id="search-form">
+                        <div class="search-input">
+                            <input autocomplete="off" type="text" name="Manish_search" id="search-input"
+                                placeholder="Type to Search...">
+                            <div class="icon search-button"><button type="submit"
+                                    style="border: none; font-size: 20px;background: none; cursor: pointer;"><i
+                                        class="fas fa-search"></i></button></div>
+                            <div class="autocom-box">
+                                <li>Login From in HTML</li>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="theamchanger"><button id="themeToggle" class="loader-css"><i id="themeIcon"
+                            class="fas fa-sun"></i></button></div>
+            </div>
+            <div class="title-3">
+                <div class="wrapper-a">
+                    <div class="display-a">
+                        <div id="time">12:00:00 PM</div>
+                    </div>
+                    <span></span><span></span>
+                </div>
+                <a href="profile" class="sign-up profile-Image-icon"><i class="fa fa-user"></i></a>
+            </div>
+        </div>
+    </nav>
+    <div class="show-preview-box">
+        <div class="show-details"><span class="show-icon fas fa-times"></span></div>
+        <div class="show-img-box"><img src="" alt=""></div>
+    </div>
+    <div class="show-shadow"></div>
     <div class="project-body">
         <div class="project-container">
             <% items.forEach(function(image){ %>
@@ -57,30 +141,85 @@
             <div class="div">Mk Studio Sikar rajasthan.</div>
         </marquee>
     </div>
-    <%- include('../partials/footer.ejs') %>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const projectContents = document.querySelectorAll('.project-content');
-                projectContents.forEach(projectContent => {
-                    const projectLink = projectContent.querySelector('.project-content-a');
 
-                    projectLink.addEventListener('click', function (event) {
-                        event.preventDefault();
-                        const currentURL = projectLink.href;
-                        const h2Element = projectContent.querySelector('h6');
-                        const h2Value = h2Element.textContent;
-                        if (currentURL) {
-                            updatePage(h2Value, currentURL);
-                        }
-                    });
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <div class="footer">
+        <div class="footer-1">
+            <h3>Quick Links</h3><a href="/">Home</a><a href="/python">Python</a><a href="/DSA">Data Structure</a><a
+                href="/WebsiteProject">Web Development</a>
+            <h4><a href="Projects">webD Projects</a></h4><a href="Shoping">Shoping</a><a href="POTD">Problem of the
+                Day</a>
+        </div>
+        <div class="footer-2">
+            <h4>Contact US</h4>
+            <h5>Email :<a href="/contactUs">Send me xxxx12@yy.gmail.com</a></h5>
+            <h5>Address :<a href="/contactUs">Sikar Rajasthan</a></h5><img src="MkCoding-2.png" alt="Manish"><img
+                src="MkCoding-14.png" alt="Manish">
+        </div>
+        <div class="footer-3">
+            <h4>social Connect</h4>
+            <div class="social-icon">
+                <a href="https://t.me/mkcoding_online"><i class="fa fa-telegram"></i></a>
+                <a href="https://amzn.to/3rUHwYw"><i class="fa fa-amazon"></i></a>
+                <a href="https://www.instagram.com/mkcoding.online/"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@mkcoding.online"><i class="fa fa-youtube-play"></i></a>
+            </div>
+            <img src="Creative team-pana 1.png" alt="Manish">
+            <h3>Mk Coding </h3>
+        </div>
+    </div>
+    <div class="lines">
+        <div class="line"></div>
+        <div class="under-line">
+            <p>&copy; 2023 MK</p>
+            <h5>Powered by MK CODING</h5>
+        </div>
+    </div>
+    <script>
+        function showtext() {
+            var i = 1;
+            while (document.getElementById(`editor-${i}`)) {
+                var editor = Mkcoding.fromTextArea(document.getElementById(`editor-${i}`), {
+                    mode: "text/x-python",
+                    theme: "dracula",
+                    lineNumbers: true,
+                    autoCloseBrackets: true,
                 });
-                function updatePage(page, currentURL) {
-                    if (currentURL) {
-                        const url = new URL(currentURL, window.location.origin);
-                        url.searchParams.set('Manish_search', page);
-                        window.location.href = url.toString();
-                    }
+                i++;
+            }
+        }
+
+        showtext();
+
+    </script>
+</body>
+
+</html>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const projectContents = document.querySelectorAll('.project-content');
+        projectContents.forEach(projectContent => {
+            const projectLink = projectContent.querySelector('.project-content-a');
+
+            projectLink.addEventListener('click', function (event) {
+                event.preventDefault();
+                const currentURL = projectLink.href;
+                const h2Element = projectContent.querySelector('h6');
+                const h2Value = h2Element.textContent;
+                if (currentURL) {
+                    updatePage(h2Value, currentURL);
                 }
             });
+        });
+        function updatePage(page, currentURL) {
+            if (currentURL) {
+                const url = new URL(currentURL, window.location.origin);
+                url.searchParams.set('Manish_search', page);
+                window.location.href = url.toString();
+            }
+        }
+    });
 
-        </script>
+</script>

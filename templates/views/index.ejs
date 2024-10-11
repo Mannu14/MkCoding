@@ -1,151 +1,309 @@
-<%- include('../partials/navbar.ejs') %>
-<main>
-    <div class="content">
-        <button id="themeToggle" class="loader-css"><i id="themeIcon" class="fas fa-sun"></i></button>
-        <div class="images blur-load">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-1.jpeg">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-2.png">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-3.png">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-4.png">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-5.png">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-6.png">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-7.png">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-8.png">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-9.png">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-10.png">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-11.png">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-12.png">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-13.png">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-14.png">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-15.png">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-16.png">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-17.png">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-18.jpeg">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-19.png">
-            <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/Mkcoding-team.png">
-        </div>
-        <div onclick="side_slide(-1)" class="slide left"><span class="fas fa-angle-left"></span></div>
-        <div onclick="side_slide(1)" class="slide right"><span class="fas fa-angle-right"></span></div>
-        <div class="btn-sliders">
-            <span onclick="btn_slide(1)"></span>
-            <span onclick="btn_slide(2)"></span>
-            <span onclick="btn_slide(3)"></span>
-            <span onclick="btn_slide(4)"></span>
-            <span onclick="btn_slide(5)"></span>
-            <span onclick="btn_slide(6)"></span>
-            <span onclick="btn_slide(7)"></span>
-            <span onclick="btn_slide(8)"></span>
-            <span onclick="btn_slide(9)"></span>
-            <span onclick="btn_slide(10)"></span>
-            <span onclick="btn_slide(11)"></span>
-            <span onclick="btn_slide(12)"></span>
-            <span onclick="btn_slide(13)"></span>
-            <span onclick="btn_slide(14)"></span>
-            <span onclick="btn_slide(15)"></span>
-            <span onclick="btn_slide(16)"></span>
-            <span onclick="btn_slide(17)"></span>
-            <span onclick="btn_slide(18)"></span>
-            <span onclick="btn_slide(19)"></span>
-            <span onclick="btn_slide(20)"></span>
-        </div>
-    </div>
-    <div class="project-body">
-        <div class="project-container">
-    <div class="project-card">
-        <div class="project-box">
-            <div class="project-content">
-                <h2>01</h2>
-                <h3>level up your skills</h3>
-                <p>Unleash your coding prowess! Crack today's challenge and level up your skills. Dive into the coding adventure now!</p>
-                <div class="read-more-btns">
-                    <a href="/POTD"><span>Today's POTD</span></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="project-card">
-        <div class="project-box">
-            <div class="project-content">
-                <h2>02</h2>
-                <h3>Weekly Coding Contest solution</h3>
-                <p>Explore the solutions to our Weekly Coding Contest challenges. Learn, adapt, and enhance your problem-solving skills!</p>
-                <div class="read-more-btns">
-                    <a href="/weeklyContest"><span>Contest practice</span></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="project-card">
-        <div class="project-box">
-            <div class="project-content">
-                <h2>03</h2>
-                <h3>Digital journey with WebD</h3>
-                <p>Embark on a digital journey with our Web Development Projects! Explore innovative websites, responsive designs, and cutting-edge solutions. Witness the power of web technology in action.</p>
-                <div class="read-more-btns">
-                    <a href="/Projects"><span>WebD Projects</span></a>
-                </div>
-            </div>
-        </div>
-    </div>
-        </div></div>
-<!--second--}} -->
-<div class="teacher">
-   <div class="container">
-    <div class="title">
-        <h2>Courses</h2>
-    </div>
-    <article class="review">
-        <div class="img-container">
-                <img id="person-img" class="image_1" loading="lazy" src="images/black-backGround.png" data-src="MkCoding-1.jpeg" alt="Teacher">
-        </div>
-        <h4 class="author-1"><!-- fromjs --></h4>
-        <p class="job-1"><!-- fromjs --></p>
-        <p id="info"><!-- fromjs --></p>
-        <div class="button-container">
-            <button class="pre-btn prev-btn"><i class="fa fa-chevron-left"></i></button>
-            <button class="pre-btn next-btn"><i class="fa fa-chevron-right"></i></button>
-        </div>
-        <button class="random-btn">Surprise Me</button>
-    </article>
-   </div>
-      <div class="left-teacher">
-     <div class="title-l">
-        <h2>Information</h2>
-        <div class="about-teacher">
-            <h4 class="author"><!-- fromjs --></h4>
-            
-            <p class="job"><span> Profession :</span> <!-- fromjs --></p>
-            <p id="email"><span>Email :</span> <!-- fromjs --></p>
-            <p id="infor"><!-- fromjs --></p>
-        </div>
-     </div>
-   </div>
- </div>
- <div class="marquee">
-    <marquee behavior="" direction="left" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">
-        <div class="div">Mk Studio jaipur rajasthan.</div>
-    </marquee>
-    <div class="marquee-head">
-        <div class="marquee-1">
-             <marquee class="marquee-1-a" direction="up" scrollamount="2">
-                 <a href="/python">1. Python</a>
-                 <a href="/DSA">2. Data Structure</a>
-                 <a href="/WedD">3. Web Development</a>
-                 <a href="/">4. Home</a>
-             </marquee>
-        </div>
-        <div class="marquee-2">
-            <h2>Learn</h2>
-            <h4><b>Responsive Design :</b> Creating websites that adapt and look good on various devices, including desktops, tablets, and smartphones.</h4>
-            <p><b>Security :</b> Implementing security measures to protect against common web vulnerabilities like cross-site scripting (XSS), SQL injection, and CSRF attacks.</p>
-            <p><b>Design and User Experience (UX):</b>  Creating wireframes and mockups to plan the app's layout and user interactions.</p>
-            <a href="login">Go To Learn <i class="fas fa-angle-right"></i></a>
-        </div>
-    </div>
- </div>
- <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
- <div class="marquee-bottom"><marquee behavior="" direction="left" scrollamount="5" ><div class="div">Mk Studio Sikar rajasthan.</div></marquee></div>
- <%- include('../partials/footer') %>
- <a href="http://localhost:3000/login?Mkcoding=dashboardchat">Click here for exciting offers!</a>
+<!DOCTYPE html>
+<html lang="en">
 
-  </main>
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="M.jpg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MkCoding Home page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <script src="js/style2.js" defer></script>
+    <link rel="stylesheet" href="css/top.css">
+    <script src="js/top.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/style.js" defer></script>
+    <script src="js/style3.js" defer></script>
+</head>
+
+<body>
+    <!--preloader start1-->
+    <div id="preloader-preloader">
+        <section class="preloader-body-container">
+            <div class="preloader-container">
+                <div class="preloader-ring"></div>
+                <div class="preloader-ring"></div>
+                <div class="preloader-ring"></div>
+                <div class="preloader-netflix">
+                    <span class="preloader-left"></span><span class="preloader-center-1"></span><span
+                        class="preloader-center-2"></span><span class="preloader-right"></span>
+                </div>
+                <span id="preloader-loding"></span>
+                <div class="preloader-point-loader">
+                    <li class="preloader-ring-loader"></li>
+                    <li class="preloader-ring-loader"></li>
+                    <li class="preloader-ring-loader"></li>
+                    <li class="preloader-ring-loader"></li>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!--preloader End-->
+    <nav>
+        <div class="head">
+            <div class="title-1 loader-css-2">
+                <img src="M.jpg" alt="Manish">
+            </div>
+            <div class="title-2"><label>Mk <span>Coding</span></label></div>
+            <div class="search-bar">
+                <div class="wrapper">
+                    <div class="search-input">
+                        <input type="text" placeholder="Type to Search...">
+                        <div class="icon"><i class="fas fa-search"></i></div>
+                        <div class="autocom-box">
+                            <li>Login From in HTML</li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="title-3">
+                <div class="wrapper-a">
+                    <div class="display-a">
+                        <div id="time">12:00:00 PM</div>
+                    </div><span></span><span></span>
+                </div>
+                <a href="login" class="login">Login</a><a href="signUp" class="sign-up">SignUp</a>
+            </div>
+        </div>
+    </nav>
+    <style>
+        .search-input .autocom-box {
+            padding: 10px;
+        }
+
+        .footer-1 a {
+            width: 100%;
+            padding: 20px 48px 0px 14px;
+        }
+
+        #themeToggle {
+            display: none;
+        }
+    </style>
+    <div class="show-preview-box">
+        <div class="show-details"><span class="show-icon fas fa-times"></span></div>
+        <div class="show-img-box"><img src="" alt=""></div>
+    </div>
+    <div class="show-shadow"></div>
+    <main>
+        <div class="content">
+            <button id="themeToggle" class="loader-css"><i id="themeIcon" class="fas fa-sun"></i></button>
+            <div class="images blur-load">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-1.jpeg">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-2.png">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-3.png">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-4.png">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-5.png">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-6.png">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-7.png">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-8.png">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-9.png">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-10.png">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-11.png">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-12.png">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-13.png">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-14.png">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-15.png">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-16.png">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-17.png">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-18.jpeg">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/MkCoding-19.png">
+                <img class="image" loading="lazy" src="images/black-backGround.png" data-src="images/Mkcoding-team.png">
+            </div>
+            <div onclick="side_slide(-1)" class="slide left"><span class="fas fa-angle-left"></span></div>
+            <div onclick="side_slide(1)" class="slide right"><span class="fas fa-angle-right"></span></div>
+            <div class="btn-sliders">
+                <span onclick="btn_slide(1)"></span>
+                <span onclick="btn_slide(2)"></span>
+                <span onclick="btn_slide(3)"></span>
+                <span onclick="btn_slide(4)"></span>
+                <span onclick="btn_slide(5)"></span>
+                <span onclick="btn_slide(6)"></span>
+                <span onclick="btn_slide(7)"></span>
+                <span onclick="btn_slide(8)"></span>
+                <span onclick="btn_slide(9)"></span>
+                <span onclick="btn_slide(10)"></span>
+                <span onclick="btn_slide(11)"></span>
+                <span onclick="btn_slide(12)"></span>
+                <span onclick="btn_slide(13)"></span>
+                <span onclick="btn_slide(14)"></span>
+                <span onclick="btn_slide(15)"></span>
+                <span onclick="btn_slide(16)"></span>
+                <span onclick="btn_slide(17)"></span>
+                <span onclick="btn_slide(18)"></span>
+                <span onclick="btn_slide(19)"></span>
+                <span onclick="btn_slide(20)"></span>
+            </div>
+        </div>
+        <div class="project-body">
+            <div class="project-container">
+                <div class="project-card">
+                    <div class="project-box">
+                        <div class="project-content">
+                            <h2>01</h2>
+                            <h3>level up your skills</h3>
+                            <p>Unleash your coding prowess! Crack today's challenge and level up your skills. Dive into
+                                the coding adventure now!</p>
+                            <div class="read-more-btns">
+                                <a href="/POTD"><span>Today's POTD</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-box">
+                        <div class="project-content">
+                            <h2>02</h2>
+                            <h3>Weekly Coding Contest solution</h3>
+                            <p>Explore the solutions to our Weekly Coding Contest challenges. Learn, adapt, and enhance
+                                your problem-solving skills!</p>
+                            <div class="read-more-btns">
+                                <a href="/weeklyContest"><span>Contest practice</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-box">
+                        <div class="project-content">
+                            <h2>03</h2>
+                            <h3>Digital journey with WebD</h3>
+                            <p>Embark on a digital journey with our Web Development Projects! Explore innovative
+                                websites, responsive designs, and cutting-edge solutions. Witness the power of web
+                                technology in action.</p>
+                            <div class="read-more-btns">
+                                <a href="/Projects"><span>WebD Projects</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--second--}} -->
+        <div class="teacher">
+            <div class="container">
+                <div class="title">
+                    <h2>Courses</h2>
+                </div>
+                <article class="review">
+                    <div class="img-container">
+                        <img id="person-img" class="image_1" loading="lazy" src="images/black-backGround.png"
+                            data-src="MkCoding-1.jpeg" alt="Teacher">
+                    </div>
+                    <h4 class="author-1"><!-- fromjs --></h4>
+                    <p class="job-1"><!-- fromjs --></p>
+                    <p id="info"><!-- fromjs --></p>
+                    <div class="button-container">
+                        <button class="pre-btn prev-btn"><i class="fa fa-chevron-left"></i></button>
+                        <button class="pre-btn next-btn"><i class="fa fa-chevron-right"></i></button>
+                    </div>
+                    <button class="random-btn">Surprise Me</button>
+                </article>
+            </div>
+            <div class="left-teacher">
+                <div class="title-l">
+                    <h2>Information</h2>
+                    <div class="about-teacher">
+                        <h4 class="author"><!-- fromjs --></h4>
+
+                        <p class="job"><span> Profession :</span> <!-- fromjs --></p>
+                        <p id="email"><span>Email :</span> <!-- fromjs --></p>
+                        <p id="infor"><!-- fromjs --></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="marquee">
+            <marquee behavior="" direction="left" scrollamount="5" onmouseover="this.stop();"
+                onmouseout="this.start();">
+                <div class="div">Mk Studio jaipur rajasthan.</div>
+            </marquee>
+            <div class="marquee-head">
+                <div class="marquee-1">
+                    <marquee class="marquee-1-a" direction="up" scrollamount="2">
+                        <a href="/python">1. Python</a>
+                        <a href="/DSA">2. Data Structure</a>
+                        <a href="/WedD">3. Web Development</a>
+                        <a href="/">4. Home</a>
+                    </marquee>
+                </div>
+                <div class="marquee-2">
+                    <h2>Learn</h2>
+                    <h4><b>Responsive Design :</b> Creating websites that adapt and look good on various devices,
+                        including desktops, tablets, and smartphones.</h4>
+                    <p><b>Security :</b> Implementing security measures to protect against common web vulnerabilities
+                        like cross-site scripting (XSS), SQL injection, and CSRF attacks.</p>
+                    <p><b>Design and User Experience (UX):</b> Creating wireframes and mockups to plan the app's layout
+                        and user interactions.</p>
+                    <a href="login">Go To Learn <i class="fas fa-angle-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
+        <div class="marquee-bottom">
+            <marquee behavior="" direction="left" scrollamount="5">
+                <div class="div">Mk Studio Sikar rajasthan.</div>
+            </marquee>
+        </div>
+
+        <head>
+            <link rel="stylesheet"
+                href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        </head>
+        <div class="footer">
+            <div class="footer-1">
+                <h3>Quick Links</h3><a href="/">Home</a><a href="/python">Python</a><a href="/DSA">Data Structure</a><a
+                    href="/WebsiteProject">Web Development</a>
+                <h4><a href="Projects">webD Projects</a></h4><a href="Shoping">Shoping</a><a href="POTD">Problem of the
+                    Day</a>
+            </div>
+            <div class="footer-2">
+                <h4>Contact US</h4>
+                <h5>Email :<a href="/contactUs">Send me xxxx12@yy.gmail.com</a></h5>
+                <h5>Address :<a href="/contactUs">Sikar Rajasthan</a></h5><img src="MkCoding-2.png" alt="Manish"><img
+                    src="MkCoding-14.png" alt="Manish">
+            </div>
+            <div class="footer-3">
+                <h4>social Connect</h4>
+                <div class="social-icon">
+                    <a href="https://t.me/mkcoding_online"><i class="fa fa-telegram"></i></a>
+                    <a href="https://amzn.to/3rUHwYw"><i class="fa fa-amazon"></i></a>
+                    <a href="https://www.instagram.com/mkcoding.online/"><i class="fa fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@mkcoding.online"><i class="fa fa-youtube-play"></i></a>
+                </div>
+                <img src="Creative team-pana 1.png" alt="Manish">
+                <h3>Mk Coding </h3>
+            </div>
+        </div>
+        <div class="lines">
+            <div class="line"></div>
+            <div class="under-line">
+                <p>&copy; 2023 MK</p>
+                <h5>Powered by MK CODING</h5>
+            </div>
+        </div>
+        <script>
+            function showtext() {
+                var i = 1;
+                while (document.getElementById(`editor-${i}`)) {
+                    var editor = Mkcoding.fromTextArea(document.getElementById(`editor-${i}`), {
+                        mode: "text/x-python",
+                        theme: "dracula",
+                        lineNumbers: true,
+                        autoCloseBrackets: true,
+                    });
+                    i++;
+                }
+            }
+
+            showtext();
+
+        </script>
+</body>
+
+</html>
+<a style="display: none;" href="http://localhost:3000/login?Mkcoding=dashboardchat">Click here for exciting offers!</a>
+
+</main>
