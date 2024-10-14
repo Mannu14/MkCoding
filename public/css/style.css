@@ -353,7 +353,7 @@ body {
     color: #a445b2;
     cursor: pointer;
     font-size: clamp(10px, 4vw, 23px);
-    padding-left: 5px;
+    padding-left: 10px;
 }
 
 .maindiv h4 {

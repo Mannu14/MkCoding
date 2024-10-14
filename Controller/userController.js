@@ -37,7 +37,7 @@ const fs = require('fs');
 const path = require('path');
 
 
-const index = async(req,res)=>{
+const index = async (req, res) => {
     try {
         res.render("index");
     } catch (error) {
@@ -45,7 +45,7 @@ const index = async(req,res)=>{
         res.status(400).render("wrongchoice");
     }
 };
-const create = async(req,res)=>{
+const create = async (req, res) => {
     try {
         res.render("mkcodingcreate");
     } catch (error) {
@@ -54,7 +54,7 @@ const create = async(req,res)=>{
     }
 };
 
-const Shoping_multiple_post = async(req,res)=>{
+const Shoping_multiple_post = async (req, res) => {
     try {
         res.render("Shoping_multiple_post");
     } catch (error) {
@@ -62,7 +62,7 @@ const Shoping_multiple_post = async(req,res)=>{
         res.status(400).render("wrongchoice");
     }
 };
-const loadLogin = async(req,res)=>{
+const loadLogin = async (req, res) => {
     try {
         const redirectUrl = req.query.Mkcoding;
         req.session.redirectUrl = redirectUrl
@@ -72,7 +72,7 @@ const loadLogin = async(req,res)=>{
         res.status(400).render("wrongchoice");
     }
 };
-const registerLoad = async(req,res)=>{
+const registerLoad = async (req, res) => {
     try {
         res.render("signUp");
     } catch (error) {
@@ -81,18 +81,18 @@ const registerLoad = async(req,res)=>{
     }
 };
 
-const secret = async(req,res)=>{
+const secret = async (req, res) => {
     Python.find({})
-    .then((data, err)=>{
-        try {
-            res.render('secret',{items: data})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
-        }
-    })
+        .then((data, err) => {
+            try {
+                res.render('secret', { items: data })
+            } catch (err) {
+                console.log(err);
+                res.status(400).render("wrongchoice");
+            }
+        })
 };
-const secretlogin = async(req,res)=>{
+const secretlogin = async (req, res) => {
     try {
         res.render("secretlogin");
     } catch (error) {
@@ -100,20 +100,20 @@ const secretlogin = async(req,res)=>{
         res.status(400).render("wrongchoice");
     }
 };
-const profile = async(req,res)=>{
-        try {
-            if(req.session.user){
-                res.render('profile',{user: req.session.user})
-            }
-            else{
-                res.render("login")
-            }
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
+const profile = async (req, res) => {
+    try {
+        if (req.session.user) {
+            res.render('profile', { user: req.session.user })
         }
+        else {
+            res.render("login")
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
-const loadDashboard = async(req,res)=>{
+const loadDashboard = async (req, res) => {
     try {
         res.render("dashboard");
     } catch (error) {
@@ -121,418 +121,418 @@ const loadDashboard = async(req,res)=>{
         res.status(400).render("wrongchoice");
     }
 };
-const problems = async(req,res)=>{
+const problems = async (req, res) => {
     try {
         // ======= search bar=============
-    var search='';
-    if(req.query.Manish_search){
-        search=req.query.Manish_search;
-    }
-    var AllInOnes = await AllInOne.find({
-        $or:[
-            { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}},
-            { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-        ]
-    });
-    // ======= End search bar=============
-    const articles = await AllInOne.find({}, 'uploadID');
-    const titlewebds = req.params.titlewebds;
-    res.render(`${titlewebds}.ejs`, { items: AllInOnes, articles: articles, articlesJSON: JSON.stringify(articles)});
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
+        }
+        var AllInOnes = await AllInOne.find({
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } },
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        // ======= End search bar=============
+        const articles = await AllInOne.find({}, 'uploadID');
+        const titlewebds = req.params.titlewebds;
+        res.render(`${titlewebds}.ejs`, { items: AllInOnes, articles: articles, articlesJSON: JSON.stringify(articles) });
     } catch (err) {
         // go on userRought Middleware
         next(err);
     }
 }
-const python = async(req,res)=>{
-        try {
-            var search='';
-            if(req.query.Manish_search){
-            search=req.query.Manish_search;
-           }
-          var Pythons = await Python.find({
-        $or:[
-            { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-            { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-        ]
-    });
-            res.render('python',{items: Pythons})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
+const python = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
         }
+        var Pythons = await Python.find({
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('python', { items: Pythons })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
 // =================================Get DSA page =================
-const DSAl = async(req,res)=>{
-        try {
-            var search='';
-            if(req.query.Manish_search){
-            search=req.query.Manish_search;
-           }
-          var DSAs = await DSA.find({
-        $or:[
-            { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-            { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-        ]
-    });
-            res.render('DSA',{items: DSAs})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
+const DSAl = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
         }
+        var DSAs = await DSA.find({
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('DSA', { items: DSAs })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
 const baseURL = 'https://mkcoding.online';
-const DP = async(req,res)=>{
+const DP = async (req, res) => {
     try {
         // ======= search bar=============
-    var search='';
-    if(req.query.Manish_search){
-        search=req.query.Manish_search;
-    }
-    var Arrays = await DPModel.find({
-        $or:[
-            { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-            { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-        ]
-    });
-    // ======= End search bar=============
-     res.render('DP',{items: Arrays,baseURL:baseURL})
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
+        }
+        var Arrays = await DPModel.find({
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        // ======= End search bar=============
+        res.render('DP', { items: Arrays, baseURL: baseURL })
     } catch (err) {
         console.log(err);
         res.status(400).render("wrongchoice");
     }
 };
-const GetArray = async(req,res)=>{
+const GetArray = async (req, res) => {
     try {
         // ======= search bar=============
-    var search='';
-    if(req.query.Manish_search){
-        search=req.query.Manish_search;
-    }
-    var Arrays = await ArrayModel.find({
-        $or:[
-            { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-            { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-        ]
-    });
-    // ======= End search bar=============
-     res.render('Array',{ items: Arrays, baseURL: baseURL, })
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
+        }
+        var Arrays = await ArrayModel.find({
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        // ======= End search bar=============
+        res.render('Array', { items: Arrays, baseURL: baseURL, })
     } catch (err) {
         console.log(err);
         res.status(400).render("wrongchoice");
     }
 };
-const GetGraph = async(req,res)=>{
+const GetGraph = async (req, res) => {
     try {
-        var search='';
-    if(req.query.Manish_search){
-        search=req.query.Manish_search;
-    }
-    var Graphs = await GraphModel.find({
-        $or:[
-            { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-            { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-        ]
-    });
-    res.render('Graph',{items: Graphs})
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
+        }
+        var Graphs = await GraphModel.find({
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('Graph', { items: Graphs })
     } catch (error) {
         console.log(error);
         res.status(400).render("wrongchoice");
     }
-    
+
 };
-const GetHashTable = async(req,res)=>{
+const GetHashTable = async (req, res) => {
     try {
-        var search='';
-        if(req.query.Manish_search){
-           search=req.query.Manish_search;
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
         }
         var HashTables = await HashTableModel.find({
-           $or:[
-             { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-             { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-           ]
-    });
-    res.render('HashTable',{items: HashTables})
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('HashTable', { items: HashTables })
     } catch (error) {
         console.log(err);
-            res.status(400).render("wrongchoice");
+        res.status(400).render("wrongchoice");
     }
 };
-const GetHeap = async(req,res)=>{
-        try {
-            var search='';
-        if(req.query.Manish_search){
-           search=req.query.Manish_search;
+const GetHeap = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
         }
         var Heaps = await HeapModel.find({
-           $or:[
-             { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-             { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-           ]
-    });
-            res.render('Heap',{items: Heaps})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
-        }
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('Heap', { items: Heaps })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
-const GetLinkedList = async(req,res)=>{
-        try {
-            var search='';
-        if(req.query.Manish_search){
-           search=req.query.Manish_search;
+const GetLinkedList = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
         }
         var LinkedLists = await LinkedListModel.find({
-           $or:[
-             { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-             { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-           ]
-    });
-            res.render('LinkedList',{items: LinkedLists})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
-        }
-};
-const GetLoops = async(req,res)=>{
-        try {
-            var search='';
-            if(req.query.Manish_search){
-               search=req.query.Manish_search;
-            }
-            var Loopss = await LoopsModel.find({
-               $or:[
-                 { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-                 { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-               ]
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
         });
-            res.render('Loops',{items: Loopss})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
-        }
+        res.render('LinkedList', { items: LinkedLists })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
-const GetQueue = async(req,res)=>{
-        try {
-            var search='';
-            if(req.query.Manish_search){
-               search=req.query.Manish_search;
-            }
-            var Queues = await QueueModel.find({
-               $or:[
-                 { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-                 { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-               ]
+const GetLoops = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
+        }
+        var Loopss = await LoopsModel.find({
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
         });
-            res.render('Queue',{items: Queues})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
-        }
+        res.render('Loops', { items: Loopss })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
-const GetStack = async(req,res)=>{
-        try {
-            var search='';
-            if(req.query.Manish_search){
-               search=req.query.Manish_search;
-            }
-            var Stacks = await StackModel.find({
-               $or:[
-                 { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-                 { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-               ]
+const GetQueue = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
+        }
+        var Queues = await QueueModel.find({
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
         });
-            res.render('Stack',{items: Stacks})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
-        }
+        res.render('Queue', { items: Queues })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
-const GetTree = async(req,res)=>{
-        try {
-                var search='';
-                if(req.query.Manish_search){
-                   search=req.query.Manish_search;
-                }
-                var Trees = await TreeModel.find({
-                   $or:[
-                     { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-                     { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-                   ]
-            });
-            res.render('Tree',{items: Trees})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
+const GetStack = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
         }
+        var Stacks = await StackModel.find({
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('Stack', { items: Stacks })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
-const realtimeProjects = async(req,res)=>{
-        try {
-                var search='';
-                if(req.query.Manish_search){
-                   search=req.query.Manish_search;
-                }
-                var realtimeProject = await realtimeProjectsModel.find({
-                   $or:[
-                     { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-                     { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-                   ]
-            });
-            res.render('realtimeProjects',{items: realtimeProject})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
+const GetTree = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
         }
+        var Trees = await TreeModel.find({
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('Tree', { items: Trees })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
+};
+const realtimeProjects = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
+        }
+        var realtimeProject = await realtimeProjectsModel.find({
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('realtimeProjects', { items: realtimeProject })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
 // =================================Get DSA page end =================
-const WebsiteProject = async(req,res)=>{
-        try {
-            var search='';
-                if(req.query.Manish_search){
-                   search=req.query.Manish_search;
-                }
-                var WebsiteProjecs = await WebsiteProjectModel.find({
-                   $or:[
-                     { mainheading_h3:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-                     { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-                   ]
-            });
-            res.render('WebsiteProject',{items: WebsiteProjecs})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
+const WebsiteProject = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
         }
+        var WebsiteProjecs = await WebsiteProjectModel.find({
+            $or: [
+                { mainheading_h3: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('WebsiteProject', { items: WebsiteProjecs })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
-const runShowProject = async(req,res)=>{
-        try {
-            var search='';
-                if(req.query.Manish_search){
-                   search=req.query.Manish_search;
-                }
-                var runShowProjects = await runShowProjectModel.find({
-                   $or:[
-                     { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-                     { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-                   ]
-            });
-            res.render('runShowProject',{items: runShowProjects})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
+const runShowProject = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
         }
+        var runShowProjects = await runShowProjectModel.find({
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('runShowProject', { items: runShowProjects })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
 const OnlineCompiler = async (req, res) => {
     try {
-      const userInput = req.query.Manish_search || '';
-      let filteredItems;
+        const userInput = req.query.Manish_search || '';
+        let filteredItems;
 
-    if (userInput) {
-      // Use Mongoose find method to query the database
-      filteredItems = await runShowProjectModel.find({ mainheading_h3: { $regex: userInput, $options: 'i' } });
-      res.render('OnlineCompiler', { items: filteredItems, userInput });
-    } else {
-      // Render an empty page if no search input
-      res.render('OnlineCompiler', { items: [], userInput });
-    }
+        if (userInput) {
+            // Use Mongoose find method to query the database
+            filteredItems = await runShowProjectModel.find({ mainheading_h3: { $regex: userInput, $options: 'i' } });
+            res.render('OnlineCompiler', { items: filteredItems, userInput });
+        } else {
+            // Render an empty page if no search input
+            res.render('OnlineCompiler', { items: [], userInput });
+        }
     } catch (err) {
-      console.log(err);
-      res.status(400).render('wrongchoice');
+        console.log(err);
+        res.status(400).render('wrongchoice');
     }
-  };
-const WebDPaidProject = async(req,res)=>{
-        try {
-            var search='';
-                if(req.query.Manish_search){
-                   search=req.query.Manish_search;
-                }
-                var WebDPaidProjects = await WebDPaidProjectModel.find({
-                   $or:[
-                     { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-                     { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-                   ]
-            });
-            res.render('WebD-paid-Project',{items: WebDPaidProjects})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
-        }
 };
-const Projects = async(req,res)=>{
-        try {
-            var search='';
-                if(req.query.Manish_search){
-                   search=req.query.Manish_search;
-                }
-                var WebDProjects = await ProjectsModel.find({
-                   $or:[
-                     { mainheading_h6:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-                     { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-                   ]
-            });
-            res.render('Projects',{items: WebDProjects})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
+const WebDPaidProject = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
         }
+        var WebDPaidProjects = await WebDPaidProjectModel.find({
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('WebD-paid-Project', { items: WebDPaidProjects })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
-const weeklyContest = async(req,res)=>{
-        try {
-            var search='';
-                if(req.query.Manish_search){
-                   search=req.query.Manish_search;
-                }
-                var weeklyContests = await weeklyContestModel.find({
-                   $or:[
-                     { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-                     { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-                   ]
-            });
-            res.render('weeklyContest',{items: weeklyContests})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
+const Projects = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
         }
+        var WebDProjects = await ProjectsModel.find({
+            $or: [
+                { mainheading_h6: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('Projects', { items: WebDProjects })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
-const POTD = async(req,res)=>{
-        try {
-            var search='';
-                if(req.query.Manish_search){
-                   search=req.query.Manish_search;
-                }
-                var POTDs = await POTDModel.find({
-                   $or:[
-                     { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-                     { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}},
-                   ]
-            });
-            res.render('POTD',{items: POTDs})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
+const weeklyContest = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
         }
+        var weeklyContests = await weeklyContestModel.find({
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('weeklyContest', { items: weeklyContests })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
-const shopnow = async(req,res)=>{
+const POTD = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
+        }
+        var POTDs = await POTDModel.find({
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('POTD', { items: POTDs })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
+};
+const shopnow = async (req, res) => {
     try {
         const search = req.query.search || '';
         let filteredItems;
         let item1;
         filteredItems = await ShopingWeb.find({ uploadID: { $regex: search, $options: 'i' } });
-  
-      if (search) {
-        // Use Mongoose find method to query the database
-        item1 = await ShopingWeb.find({ uploadID: { $regex: new RegExp(`\\b${search}\\b`, 'i') } });
-        res.render('shopnow', { items: filteredItems, search,item1: item1});
-      } else {
-        // Render an empty page if no search input
-        res.render('shopnow', { items: [], search,item1: [] });
-      }
-      } catch (err) {
+
+        if (search) {
+            // Use Mongoose find method to query the database
+            item1 = await ShopingWeb.find({ uploadID: { $regex: new RegExp(`\\b${search}\\b`, 'i') } });
+            res.render('shopnow', { items: filteredItems, search, item1: item1 });
+        } else {
+            // Render an empty page if no search input
+            res.render('shopnow', { items: [], search, item1: [] });
+        }
+    } catch (err) {
         console.log(err);
         res.status(400).render('wrongchoice');
-      }
+    }
 };
 
-const wrongchoice = async(req,res)=>{
+const wrongchoice = async (req, res) => {
     try {
         res.render("wrongchoice");
     } catch (error) {
@@ -544,33 +544,33 @@ let saveOTP = {};
 let saveemail = {};
 const nodemailer = require("nodemailer");
 
-const sendOtp = async(req, res)=>{
+const sendOtp = async (req, res) => {
     // body = `
-        //           Name : ` +  req.body.name
-        // --------------------------------------------
-        const emailuser = req.body.email
-        const email = req.body.email
-        let allCharacters = '0123456789';
-        let Otp = ''
-        for(let i = 0; i < 6; i++){
-            Otp += allCharacters[Math.floor(Math.random() * 10)];
-        }
+    //           Name : ` +  req.body.name
+    // --------------------------------------------
+    const emailuser = req.body.email
+    const email = req.body.email
+    let allCharacters = '0123456789';
+    let Otp = ''
+    for (let i = 0; i < 6; i++) {
+        Otp += allCharacters[Math.floor(Math.random() * 10)];
+    }
 
-        var transporter = nodemailer.createTransport({
-            service:'gmail',
-            port:587,
-            secure:false,
-            auth:{
-                user: process.env.useremail,
-                pass:process.env.emailpass
-            }
-        })
-        var mailOptions = {
-            from:`${emailuser}`,
-            to:email,
-            subject:"OTP Verification from mkcoding.online",
-            // text:body,
-            html: `<p style="font-family: math;background: #222;padding: 12px; text-align: center; color: #5bf701; font-size: 27px; font-weight: bold;">
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        port: 587,
+        secure: false,
+        auth: {
+            user: process.env.useremail,
+            pass: process.env.emailpass
+        }
+    })
+    var mailOptions = {
+        from: `${emailuser}`,
+        to: email,
+        subject: "OTP Verification from mkcoding.online",
+        // text:body,
+        html: `<p style="font-family: math;background: #222;padding: 12px; text-align: center; color: #5bf701; font-size: 27px; font-weight: bold;">
             Welcome to<b style="font-size: 30px;font-weight: bolder;">  MkCoding!</b>
         </p>
         <p style="font-family: 'Arial',  sans-serif;text-align: center; font-size: 18px;">
@@ -603,28 +603,28 @@ const sendOtp = async(req, res)=>{
         <a style="display: flex; padding-left:20px; color: #fff;" href="https://www.mkcoding.online/runShowProject">WebD Projects</a>
         <a style="display: block;padding-right: 20px; text-align: right; color: #15ff00;" href="https://www.instagram.com/mkcoding.online/">Instagram</a>
         </p>`
+    }
+    transporter.sendMail(mailOptions, function (err, info) {
+        if (err) {
+            console.log(err);
+            res.status(500).send("couldn't send");
+        } else {
+            console.log("OTP Sent " + info.response);
+            saveOTP[email] = Otp;
+            saveOTP = Otp;
+            console.log(saveOTP);
+            saveemail = emailuser;
+            setTimeout(() => {
+                delete saveOTP
+                saveOTP = {}
+            }, 300000)
+            console.log(err);
         }
-        transporter.sendMail(mailOptions,function(err,info){
-            if(err){
-                console.log(err);
-                res.status(500).send("couldn't send");
-            }else{
-                console.log("OTP Sent " + info.response);
-                saveOTP[email] = Otp;
-                saveOTP = Otp;
-                console.log(saveOTP);
-                saveemail = emailuser;
-                setTimeout(()=>{
-                    delete saveOTP
-                    saveOTP = {}
-                },300000)
-                console.log(err);
-            }
-        });
+    });
 }
 
 
-const register = async(req, res) =>{
+const register = async (req, res) => {
     try {
 
         const password = req.body.password;
@@ -632,27 +632,29 @@ const register = async(req, res) =>{
         let otprecived = req.body.OTP;
         let email = req.body.email;
         // console.log(saveOTP, otprecived, email);
-        
-        if(password === cpassword){
-         if(saveemail === email){        
-          if(saveOTP === otprecived){        
-            const registerEmployee = new Register({
-                firstname:req.body.firstname,
-                lastname:req.body.lastname,
-                email:req.body.email,
-                phone:req.body.phone,
-                password:password,
-                confirmpassord:cpassword,
-                address:req.body.address,
-                image: 'images/'+req.file.filename,
-            })
-          const token = await registerEmployee.generateAuthToken();
-          res.cookie("jwt", token, {
-            // expires:new Date(Date.now() + 30000),
-            httpOnly:true
-        });
-          const registered = await registerEmployee.save();
-          const emailuser = req.body.email;
+
+        if (password === cpassword) {
+            if (saveemail === email) {
+                if (saveOTP === otprecived) {
+                    const registerEmployee = new Register({
+                        firstname: req.body.firstname,
+                        lastname: req.body.lastname,
+                        email: req.body.email,
+                        phone: req.body.phone,
+                        password: password,
+                        confirmpassord: cpassword,
+                        address: req.body.address,
+                        image: 'images/' + req.file.filename,
+                    })
+                    const token = await registerEmployee.generateAuthToken();
+                    res.cookie("jwt", token, {
+                        // expires:new Date(Date.now() + 30000),
+                        httpOnly: true,
+                        secure: true,
+                        sameSite: 'None'
+                    });
+                    const registered = await registerEmployee.save();
+                    const emailuser = req.body.email;
                     const subject = "Registration Confirmation from mkcoding.online";
 
                     const transporter = nodemailer.createTransport({
@@ -701,26 +703,26 @@ const register = async(req, res) =>{
                             console.log("Confirmation Email Sent: " + info.response);
                         }
                     });
-          res.status(201).render("login");
-        }
-        else{
-            res.send("Invalid OTP")
-        }
-    }else{
-        res.send("Email are not matching")
-    }
-    }else{
+                    res.status(201).render("login");
+                }
+                else {
+                    res.send("Invalid OTP")
+                }
+            } else {
+                res.send("Email are not matching")
+            }
+        } else {
             res.send("password are not matching");
         }
-    
-   } catch (error) {
+
+    } catch (error) {
         res.status(400).render("wrongchoice");
-   }
+    }
 };
 
-const dashboard =  async(req,res)=>{
+const dashboard = async (req, res) => {
     try {
-        const dashboard = new Dashboard( {
+        const dashboard = new Dashboard({
             img: {
                 data: fs.readFileSync(path.join(__dirname + '/public/images/' + req.file.filename)),
                 contentType: 'image/png'
@@ -746,152 +748,152 @@ const dashboard =  async(req,res)=>{
             textarea: req.body.textarea,
         });
 
-        if(req.body.uploadClass == "python"){
+        if (req.body.uploadClass == "python") {
             Python.create(dashboard)
-        .then((err,item)=>{
-            try {
-                res.render('index');
-            } catch (err) {
-                console.log(err);
-                res.status(400).render("wrongchoice");
-            }
-        })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
         // ================== DSA Model save====================
-        else if(req.body.uploadClass == "DSA"){
+        else if (req.body.uploadClass == "DSA") {
             DSA.create(dashboard)
-            .then((err,item)=>{
-                try {
-                    res.render('index');
-                } catch (err) {
-                    console.log(err);
-                    res.status(400).render("wrongchoice");
-                }
-            })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "Array"){
+        else if (req.body.uploadClass == "Array") {
             ArrayModel.create(dashboard)
-            .then((err,item)=>{
-                try {
-                    res.render('index');
-                } catch (err) {
-                    console.log(err);
-                    res.status(400).render("wrongchoice");
-                }
-            })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "Graph"){
+        else if (req.body.uploadClass == "Graph") {
             GraphModel.create(dashboard)
-            .then((err,item)=>{
-                try {
-                    res.render('index');
-                } catch (err) {
-                    console.log(err);
-                    res.status(400).render("wrongchoice");
-                }
-            })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "Hash_Table"){
+        else if (req.body.uploadClass == "Hash_Table") {
             HashTableModel.create(dashboard)
-            .then((err,item)=>{
-                try {
-                    res.render('index');
-                } catch (err) {
-                    console.log(err);
-                    res.status(400).render("wrongchoice");
-                }
-            })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "Heap"){
+        else if (req.body.uploadClass == "Heap") {
             HeapModel.create(dashboard)
-            .then((err,item)=>{
-                try {
-                    res.render('index');
-                } catch (err) {
-                    console.log(err);
-                    res.status(400).render("wrongchoice");
-                }
-            })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "LinkedList"){
+        else if (req.body.uploadClass == "LinkedList") {
             LinkedListModel.create(dashboard)
-            .then((err,item)=>{
-                try {
-                    res.render('index');
-                } catch (err) {
-                    console.log(err);
-                    res.status(400).render("wrongchoice");
-                }
-            })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "Loops"){
+        else if (req.body.uploadClass == "Loops") {
             LoopsModel.create(dashboard)
-            .then((err,item)=>{
-                try {
-                    res.render('index');
-                } catch (err) {
-                    console.log(err);
-                    res.status(400).render("wrongchoice");
-                }
-            })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "Queue"){
+        else if (req.body.uploadClass == "Queue") {
             QueueModel.create(dashboard)
-            .then((err,item)=>{
-                try {
-                    res.render('index');
-                } catch (err) {
-                    console.log(err);
-                    res.status(400).render("wrongchoice");
-                }
-            })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "Stack"){
+        else if (req.body.uploadClass == "Stack") {
             StackModel.create(dashboard)
-            .then((err,item)=>{
-                try {
-                    res.render('index');
-                } catch (err) {
-                    console.log(err);
-                    res.status(400).render("wrongchoice");
-                }
-            })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "Tree"){
+        else if (req.body.uploadClass == "Tree") {
             TreeModel.create(dashboard)
-            .then((err,item)=>{
-                try {
-                    res.render('index');
-                } catch (err) {
-                    console.log(err);
-                    res.status(400).render("wrongchoice");
-                }
-            })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
         // ================== DSA Model save end====================
-        else if(req.body.uploadClass == "WebD"){
+        else if (req.body.uploadClass == "WebD") {
             WebsiteProjectModel.create(dashboard)
-        .then((err,item)=>{
-            try {
-                res.render('index');
-            } catch (err) {
-                console.log(err);
-                res.status(400).render("wrongchoice");
-            }
-        })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "WebDPaidProject"){
+        else if (req.body.uploadClass == "WebDPaidProject") {
             WebDPaidProjectModel.create(dashboard)
-        .then((err,item)=>{
-            try {
-                res.render('index');
-            } catch (err) {
-                console.log(err);
-                res.status(400).render("wrongchoice");
-            }
-        })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "runShowProject") {
+        else if (req.body.uploadClass == "runShowProject") {
             runShowProjectModel.create(dashboard)
                 .then((item) => {
                     res.render('index');
@@ -901,116 +903,116 @@ const dashboard =  async(req,res)=>{
                     console.error('Error creating document:', err);
                     res.status(400).render('wrongchoice');
                 });
-        }  
-        else if(req.body.uploadClass == "projects"){
+        }
+        else if (req.body.uploadClass == "projects") {
             ProjectsModel.create(dashboard)
-        .then((err,item)=>{
-            try {
-                res.render('index');
-            } catch (err) {
-                console.log(err);
-                res.status(400).render("wrongchoice");
-            }
-        })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "POTD"){
+        else if (req.body.uploadClass == "POTD") {
             POTDModel.create(dashboard)
-        .then((err,item)=>{
-            try {
-                res.render('index');
-            } catch (err) {
-                console.log(err);
-                res.status(400).render("wrongchoice");
-            }
-        })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "weeklyContest"){
+        else if (req.body.uploadClass == "weeklyContest") {
             weeklyContestModel.create(dashboard)
-        .then((err,item)=>{
-            try {
-                res.render('index');
-            } catch (err) {
-                console.log(err);
-                res.status(400).render("wrongchoice");
-            }
-        })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "hindiStory"){
+        else if (req.body.uploadClass == "hindiStory") {
             HindiStoryDashboard.create(dashboard)
-            .then((err,item)=>{
-                try {
-                    res.render('index');
-                } catch (err) {
-                    console.log(err);
-                    res.status(400).render("wrongchoice");
-                }
-            }) 
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "EnglishStory"){
+        else if (req.body.uploadClass == "EnglishStory") {
             EnglishStorysDashboard.create(dashboard)
-            .then((err,item)=>{
-                try {
-                    res.render('index');
-                } catch (err) {
-                    console.log(err);
-                    res.status(400).render("wrongchoice");
-                }
-            }) 
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "blog"){
+        else if (req.body.uploadClass == "blog") {
             blogDashboard.create(dashboard)
-        .then((err,item)=>{
-            try {
-                res.render('index');
-            } catch (err) {
-                console.log(err);
-                res.status(400).render("wrongchoice");
-            }
-        })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "DP"){
+        else if (req.body.uploadClass == "DP") {
             DPModel.create(dashboard)
-        .then((err,item)=>{
-            try {
-                res.render('index');
-            } catch (err) {
-                console.log(err);
-                res.status(400).render("wrongchoice");
-            }
-        })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "uploadcode"){
+        else if (req.body.uploadClass == "uploadcode") {
             uploadcodeDashboard.create(dashboard)
-        .then((err,item)=>{
-            try {
-                res.render('index');
-            } catch (err) {
-                console.log(err);
-                res.status(400).render("wrongchoice");
-            }
-        })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "realtimeProjects"){
+        else if (req.body.uploadClass == "realtimeProjects") {
             realtimeProjectsModel.create(dashboard)
-        .then((err,item)=>{
-            try {
-                res.render('index');
-            } catch (err) {
-                console.log(err);
-                res.status(400).render("wrongchoice");
-            }
-        })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
-        else if(req.body.uploadClass == "AllInOne"){
+        else if (req.body.uploadClass == "AllInOne") {
             AllInOne.create(dashboard)
-        .then((err,item)=>{
-            try {
-                res.render('index');
-            } catch (err) {
-                console.log(err);
-                res.status(400).render("wrongchoice");
-            }
-        })
+                .then((err, item) => {
+                    try {
+                        res.render('index');
+                    } catch (err) {
+                        console.log(err);
+                        res.status(400).render("wrongchoice");
+                    }
+                })
         }
     } catch (error) {
         console.log(error.message);
@@ -1018,32 +1020,35 @@ const dashboard =  async(req,res)=>{
     }
 };
 
-const login = async(req,res)=>{
+const login = async (req, res) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
-        const useremail = await Register.findOne({email:email});
+        const useremail = await Register.findOne({ email: email });
         const passwordMatch = await bcrypt.compare(password, useremail.password);
         const token = await useremail.generateAuthToken();
 
         res.cookie("jwt", token, {
-            expires:new Date(Date.now() + 300000),
-            httpOnly:true
-            // secure:true
-        }); 
-        if(passwordMatch){
+            expires: new Date(Date.now() + 300000),
+            httpOnly: true,
+            secure: true,
+            sameSite: 'None'
+        });
+        if (passwordMatch) {
             req.session.user = useremail;
             res.cookie('user', JSON.stringify(useremail), {
                 expires: new Date(Date.now() + 300000),
-                httpOnly: true
+                httpOnly: true,
+                secure: true,
+                sameSite: 'None'
             });
-            if(req.session.redirectUrl){
+            if (req.session.redirectUrl) {
                 res.status(201).redirect(`http://localhost:3000/${req.session.redirectUrl}`);
-            }else{
-            res.status(201).redirect("profile");
+            } else {
+                res.status(201).redirect("profile");
             }
         }
-        else{
+        else {
             res.send("Invalid details");
         }
     } catch (error) {
@@ -1051,24 +1056,25 @@ const login = async(req,res)=>{
     }
 };
 
-const secretloginpost =  async(req,res)=>{
+const secretloginpost = async (req, res) => {
     try {
         const email = req.body.email;
         const phone = req.body.phone;
         const password = req.body.password;
-        const useremail = await Register.findOne({email:email});
+        const useremail = await Register.findOne({ email: email });
         const passwordMatch = await bcrypt.compare(password, useremail.password);
         const token = await useremail.generateAuthToken();
 
         res.cookie("jwt", token, {
-            expires:new Date(Date.now() + 300000),
-            httpOnly:true
-            // secure:true
-        }); 
-        if(passwordMatch){
+            expires: new Date(Date.now() + 300000),
+            httpOnly: true,
+            secure: true,
+            sameSite: 'None'
+        });
+        if (passwordMatch) {
             res.status(201).redirect("dashboard");
         }
-        else{
+        else {
             res.send("Invalid details");
         }
     } catch (error) {
@@ -1076,11 +1082,11 @@ const secretloginpost =  async(req,res)=>{
     }
 };
 
-const logOut = async(req,res, next)=>{
+const logOut = async (req, res, next) => {
     try {
         res.clearCookie('user');
         req.session.destroy();
-        res.redirect("/login"); 
+        res.redirect("/login");
     } catch (error) {
         console.log(error.message);
         res.status(400).render("wrongchoice");
@@ -1088,38 +1094,38 @@ const logOut = async(req,res, next)=>{
 };
 
 // ======================= image download section=====
-const freeImageDownload = async(req,res)=>{
-        try {
-            var search='';
-            if(req.query.search){
-               search=req.query.search;
-            }
-            var FreeImageDashboards = await FreeImageDashboardModel.find({
-               $or:[
-                 { uploadClass:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-                 { headinginh4:{$regex:'.*'+search+'.*',$options:'i'}},
-               ]
-        });
-            res.render('free_image_download',{items: FreeImageDashboards})
-        } catch (err) {
-            console.log(err);
+const freeImageDownload = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.search) {
+            search = req.query.search;
         }
+        var FreeImageDashboards = await FreeImageDashboardModel.find({
+            $or: [
+                { uploadClass: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { headinginh4: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('free_image_download', { items: FreeImageDashboards })
+    } catch (err) {
+        console.log(err);
+    }
 };
-const freeImageDlogin = async(req,res)=>{
+const freeImageDlogin = async (req, res) => {
     try {
         res.render("free_image_d_login");
     } catch (error) {
         console.log(error.message);
     }
 };
-const freeImageDashboard = async(req,res)=>{
+const freeImageDashboard = async (req, res) => {
     try {
         res.render("free_image_dashboard");
     } catch (error) {
         console.log(error.message);
     }
 };
-const contactUs = async(req,res)=>{
+const contactUs = async (req, res) => {
     try {
         res.render("contactUs");
     } catch (error) {
@@ -1127,25 +1133,25 @@ const contactUs = async(req,res)=>{
     }
 };
 
-const freeImageDloginpost = async(req,res) =>{
+const freeImageDloginpost = async (req, res) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
 
-        const userData = await Register.findOne({email:email});
-        if(userData){
+        const userData = await Register.findOne({ email: email });
+        if (userData) {
             const passwordMatch = await bcrypt.compare(password, userData.password);
 
-            if(passwordMatch){
+            if (passwordMatch) {
                 req.session.user = userData;
                 // res.cookie('user',JSON.stringify(userData));
                 res.redirect("/free_image_dashboard");
 
-            }else{
-                res.render("free_image_d_login",{message:"invalid details"});
+            } else {
+                res.render("free_image_d_login", { message: "invalid details" });
             }
-        }else{
-            res.render("free_image_d_login",{message:"invalid details"});
+        } else {
+            res.render("free_image_d_login", { message: "invalid details" });
         }
     } catch (error) {
         console.log(error.message);
@@ -1153,28 +1159,28 @@ const freeImageDloginpost = async(req,res) =>{
     }
 };
 
-const freeImageDashboardpost = async(req,res)=>{
+const freeImageDashboardpost = async (req, res) => {
     try {
-        const freeImagedashboardModel = new FreeImageDashboardModel( {
+        const freeImagedashboardModel = new FreeImageDashboardModel({
             img: {
                 data: fs.readFileSync(path.join(__dirname + '/public/images/' + req.file.filename)),
                 contentType: 'image/png'
             },
             uploadClass: req.body.uploadClass,
-            heading:req.body.heading,
-            headinginh4:req.body.headinginh4
+            heading: req.body.heading,
+            headinginh4: req.body.headinginh4
         });
 
         // await dashboard.save();
         FreeImageDashboardModel.create(freeImagedashboardModel)
-        .then((err,item)=>{
-            try {
-                res.render('free_image_d_login');
-            } catch (err) {
-                console.log(err);
-                res.render('wrongchoice')
-            }
-        })
+            .then((err, item) => {
+                try {
+                    res.render('free_image_d_login');
+                } catch (err) {
+                    console.log(err);
+                    res.render('wrongchoice')
+                }
+            })
 
     } catch (error) {
         console.log(error.message);
@@ -1222,98 +1228,98 @@ const shopingBlogupload = async (req, res) => {
 
 
 // ======================= image download section end=====
-const Blog = async(req,res)=>{
-        try {
-            var search='';
-            if(req.query.search){
-               search=req.query.search;
-            }
-            var blogs = await blogDashboard.find({
-               $or:[
-                 { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-                 { mainheading_p:{$regex:'.*'+search+'.*',$options:'i'}},
-               ]
-        });
-            res.render('blog',{items: blogs})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
+const Blog = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.search) {
+            search = req.query.search;
         }
+        var blogs = await blogDashboard.find({
+            $or: [
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_p: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('blog', { items: blogs })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
-const HindiStorys = async(req,res)=>{
-        try {
-            var search='';
-            if(req.query.search){
-               search=req.query.search;
-            }
-            var HindiStorys = await HindiStoryDashboard.find({
-               $or:[
-                 { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-                 { mainheading_p:{$regex:'.*'+search+'.*',$options:'i'}},
-               ]
-        });
-            res.render('hindiStory',{items: HindiStorys})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
+const HindiStorys = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.search) {
+            search = req.query.search;
         }
+        var HindiStorys = await HindiStoryDashboard.find({
+            $or: [
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_p: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('hindiStory', { items: HindiStorys })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
-const GetEnglishStorys = async(req,res)=>{
-        try {
-            var search='';
-            if(req.query.search){
-               search=req.query.search;
-            }
-            var EnglishStoryss = await EnglishStorysDashboard.find({
-               $or:[
-                 { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-                 { mainheading_p:{$regex:'.*'+search+'.*',$options:'i'}},
-               ]
-        });
-            res.render('EnglishStorys',{items: EnglishStoryss})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
+const GetEnglishStorys = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.search) {
+            search = req.query.search;
         }
+        var EnglishStoryss = await EnglishStorysDashboard.find({
+            $or: [
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_p: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('EnglishStorys', { items: EnglishStoryss })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
-const Shoping = async(req,res)=>{
-        try {
-            var search='';
-            if(req.query.search){
-               search=req.query.search;
-            }
-            var ShopingWebs = await ShopingWeb.find({
-               $or:[
-                 { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-                 { mainheading_h3:{$regex:'.*'+search+'.*',$options:'i'}},
-               ]
-        });
-            res.render('Shoping',{items: ShopingWebs})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
+const Shoping = async (req, res) => {
+    try {
+        var search = '';
+        if (req.query.search) {
+            search = req.query.search;
         }
+        var ShopingWebs = await ShopingWeb.find({
+            $or: [
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h3: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('Shoping', { items: ShopingWebs })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
 };
 const uploadcode = async (req, res) => {
-        try {
-            var search='';
-            if(req.query.Manish_search){
-               search=req.query.Manish_search;
-            }
-            var uploadcodeDashboards = await uploadcodeDashboard.find({
-               $or:[
-                 { mainheading_h2:{$regex:'.*'+search+'.*',$options:'i'}}, // i=>ignore small and capital laters
-                 { mainheading_h3:{$regex:'.*'+search+'.*',$options:'i'}},
-               ]
-        });
-            res.render('uploadcode',{items: uploadcodeDashboards,baseURL:baseURL})
-        } catch (err) {
-            console.log(err);
-            res.status(400).render("wrongchoice");
+    try {
+        var search = '';
+        if (req.query.Manish_search) {
+            search = req.query.Manish_search;
         }
-  };
+        var uploadcodeDashboards = await uploadcodeDashboard.find({
+            $or: [
+                { mainheading_h2: { $regex: '.*' + search + '.*', $options: 'i' } }, // i=>ignore small and capital laters
+                { mainheading_h3: { $regex: '.*' + search + '.*', $options: 'i' } },
+            ]
+        });
+        res.render('uploadcode', { items: uploadcodeDashboards, baseURL: baseURL })
+    } catch (err) {
+        console.log(err);
+        res.status(400).render("wrongchoice");
+    }
+};
 
-const videoplayer = async(req,res)=>{
+const videoplayer = async (req, res) => {
     try {
         res.render("videoplayer");
     } catch (error) {
@@ -1321,7 +1327,7 @@ const videoplayer = async(req,res)=>{
     }
 };
 
-const thanku = async(req,res)=>{
+const thanku = async (req, res) => {
     try {
         res.render("thanku");
     } catch (error) {
