@@ -1043,7 +1043,7 @@ const login = async (req, res) => {
                 sameSite: 'None'
             });
             if (req.session.redirectUrl) {
-                res.status(201).redirect(`http://localhost:3000/${req.session.redirectUrl}`);
+                res.status(201).redirect(`https://mkcoding.onrender.com/${req.session.redirectUrl}`);
             } else {
                 res.status(201).redirect("profile");
             }

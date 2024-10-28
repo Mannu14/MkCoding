@@ -10,7 +10,7 @@ window.addEventListener('beforeunload', function() {
 });
 function checkSearchParameter() {
   const url = new URL(window.location.href);
-  if ((url.searchParams.get('search') == '') || (url.href == "http://localhost:3000/Shoping")) {
+  if ((url.searchParams.get('search') == '') || (url.href == "https://mkcoding.onrender.com/Shoping")) {
     shopingTopImgShowHidden.style.display = 'block';
   } 
   else {
